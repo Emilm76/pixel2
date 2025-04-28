@@ -1,0 +1,99 @@
+$ease: ease; // cubic-bezier(0.66, 0, 0.34, 1);
+// var(--ease-in-out-back)
+
+.button {
+  padding: 6px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 20px;
+  background-color: var(--color-dark);
+
+  &:hover:not(:disabled) {
+    .icon {
+      background-color: rgba(9, 0, 32, 0.4);
+    }
+    .iconWrapper {
+      transform: translate(60px, -50%);
+    }
+    .wrapper::after {
+      width: 100%;
+      opacity: 0.6;
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  padding-left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 16px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    opacity: 0;
+    background-color: var(--color-purple);
+
+    transition-duration: 0.45s;
+    transition-timing-function: $ease;
+    transition-property: width, opacity;
+  }
+}
+
+.text {
+  position: relative;
+  z-index: 2;
+}
+
+.icon {
+  position: relative;
+  z-index: 2;
+  height: 64px;
+  width: 64px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 16px;
+  background-color: var(--color-black);
+  overflow: hidden;
+
+  transition: background-color 0.45s $ease;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  transition: transform 0.45s $ease;
+}
+
+.icon1,
+.icon2 {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg {
+  width: 25px;
+  height: 16px;
+}

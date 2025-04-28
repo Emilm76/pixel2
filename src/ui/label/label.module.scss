@@ -1,0 +1,42 @@
+.label {
+  position: relative;
+  padding: 10px 16px;
+  border-radius: 30px;
+  background-color: var(--color-dark);
+
+  &::before,
+  &::after,
+  span::before,
+  span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+    border-left: 1px solid #3f404a;
+    border-top: 1px solid #3f404a;
+  }
+  &::after {
+    top: 0;
+    right: 0;
+    border-right: 1px solid #3f404a;
+    border-top: 1px solid #3f404a;
+  }
+  span::before {
+    bottom: 0;
+    left: 0;
+    border-left: 1px solid #3f404a;
+    border-bottom: 1px solid #3f404a;
+  }
+  span::after {
+    bottom: 0;
+    right: 0;
+    border-right: 1px solid #3f404a;
+    border-bottom: 1px solid #3f404a;
+  }
+}

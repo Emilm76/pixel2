@@ -1,0 +1,134 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--color-black);
+}
+
+.container {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  @media (min-width: 1300px) {
+    justify-content: space-between;
+    gap: 0;
+  }
+}
+
+.nav {
+  display: none;
+  @media (min-width: 1300px) {
+    display: block;
+  }
+  ul {
+    display: flex;
+    gap: 32px;
+  }
+}
+
+.talkButton {
+  margin-left: auto;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  @media (min-width: 1300px) {
+    margin-left: 0;
+  }
+}
+
+// Burger
+.burgerButton {
+  @media (min-width: 1300px) {
+    display: none;
+  }
+}
+
+.burgerIcon {
+  color: var(--color-purple);
+  width: 38px;
+  height: 38px;
+}
+
+.burger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 95;
+  padding-top: var(--header-height);
+  // opacity: 0;
+  // pointer-events: none;
+  transition: opacity 0.3s ease;
+  @media (min-width: 1300px) {
+    display: none;
+  }
+}
+
+.burgerWrapper {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 75;
+  background-color: var(--color-black);
+  border-top: 1px solid var(--color-grey-dark);
+  padding: 24px 0;
+  @media (min-width: 768px) {
+    padding: 0;
+  }
+}
+
+.burgerNav {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.burgerNavColumn {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+    &:nth-child(1) {
+      padding-right: 40px;
+    }
+    &:nth-child(2) {
+      padding-left: 40px;
+      border-left: 1px solid var(--color-grey-dark);
+    }
+  }
+  li {
+    padding: 24px 0;
+    @media (max-width: 767px) {
+      border-bottom: 1px solid var(--color-grey-dark);
+    }
+    @media (min-width: 768px) {
+      + li {
+        border-top: 1px solid var(--color-grey-dark);
+      }
+    }
+  }
+}
+
+.burgerTalkButton {
+  padding-top: 24px;
+  width: 100%;
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  // pointer-events: none;
+  // opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.6s ease;
+}
