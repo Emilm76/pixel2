@@ -6,7 +6,7 @@ import { ButtonArrow } from '@/ui/button-arrow/button-arrow';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 
 export function Header() {
@@ -16,9 +16,21 @@ export function Header() {
     setIsBurgerOpen(!isBurgerOpen);
   }
 
+  useEffect(() => {
+    if (isBurgerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isBurgerOpen]);
+
   return (
     <>
-      <header className={styles.header}>
+      <header className={clsx(styles.header, isBurgerOpen && styles._open)}>
         <div className={clsx(styles.container, 'container')}>
           <button
             type="button"
@@ -53,7 +65,8 @@ export function Header() {
         </div>
       </header>
 
-      <div className={styles.burger}>
+      <div className={clsx(styles.burger, isBurgerOpen && styles._open)}>
+        <div className={styles.bg} onClick={handleBurgerBtnClick}></div>
         <div className={styles.burgerWrapper}>
           <div className="container">
             <nav className={clsx(styles.burgerNav, 'h3')}>

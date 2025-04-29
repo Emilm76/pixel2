@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Sofia_Sans_Extra_Condensed, Unbounded } from 'next/font/google';
 import './globals.scss';
+import { LenisScrollProvider } from './providers/lenis-provider';
 
 export const metadata: Metadata = {
   title: 'Креативное Digital Агенство Pixel',
@@ -13,9 +14,8 @@ export const metadata: Metadata = {
 
 const sofiaSans = Sofia_Sans_Extra_Condensed({
   subsets: ['latin', 'cyrillic'],
-  weight: 'variable',
   display: 'swap',
-  variable: '--font-sofia-sans-extra-condensed',
+  variable: '--font-sofia-sans',
 });
 const unbounded = Unbounded({
   subsets: ['latin', 'cyrillic'],
@@ -31,9 +31,11 @@ export default function RootLayout({
   return (
     <html lang="ru" className={clsx(unbounded.className, sofiaSans.variable)}>
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <LenisScrollProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LenisScrollProvider>
       </body>
     </html>
   );

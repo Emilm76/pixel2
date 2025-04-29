@@ -1,7 +1,7 @@
-import clsx from 'clsx';
-import styles from './button-arrow.module.scss';
 import { ArrowRightIcon } from '@/images/icons/arrow-right';
+import clsx from 'clsx';
 import { ButtonHTMLAttributes } from 'react';
+import styles from './button-arrow.module.scss';
 
 export function ButtonArrow({
   text,
@@ -14,7 +14,7 @@ export function ButtonArrow({
   return (
     <button
       type="button"
-      className={clsx(styles.button, className, 'text-p1')}
+      className={clsx(styles.button, className, 'p1')}
       {...props}
     >
       <span>{text}</span>

@@ -1,5 +1,6 @@
 import { Label } from '@/ui/label/label';
 import clsx from 'clsx';
+import Link from 'next/link';
 import styles from './footer.module.scss';
 
 export function Footer() {
@@ -19,12 +20,16 @@ export function Footer() {
         <div className={styles.blok}>
           <Label>Написать</Label>
           <div className={styles.infoWrapper}>
-            <a href="" className="h3">
-              Telegram
-            </a>
-            <a href="" className="h3">
-              WhatsApp
-            </a>
+            <div className="button-text-lg">
+              <Link href="" className="h3">
+                Telegram
+              </Link>
+            </div>
+            <div className="button-text-lg">
+              <Link href="" className="h3">
+                WhatsApp
+              </Link>
+            </div>
           </div>
         </div>
         <div className={styles.blok}>

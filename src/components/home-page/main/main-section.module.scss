@@ -2,11 +2,11 @@
   --section-pt: 70px;
   --section-min-h: 800px;
 
+  position: relative;
   text-align: center;
   padding-top: var(--header-height);
   min-height: var(--section-min-h);
   height: 100vh;
-  overflow: hidden;
 
   @media (min-width: 768px) {
     --section-pt: 160px;
@@ -30,7 +30,7 @@
   }
 
   &::before {
-    width: var(--round-size);
+    --round-size: 593px;
     content: '';
     display: block;
     position: absolute;
@@ -38,7 +38,7 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
-    --round-size: 593px;
+    width: var(--round-size);
     height: var(--round-size);
     border-radius: 50%;
     border: 1px solid var(--color-grey-dark);
@@ -98,11 +98,8 @@
   gap: 32px;
   @media (min-width: 1024px) {
     flex-direction: row;
-    align-items: start;
+    align-items: center;
     justify-content: space-between;
     gap: 32px;
-  }
-  @media (min-width: 1300px) {
-    align-items: center;
   }
 }

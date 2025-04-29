@@ -9,7 +9,7 @@ export function MainSection() {
       <div className={clsx(styles.container, 'container')}>
         <div className={styles.textBlock}>
           <h1 className="h1">Digital-агентство полного цикла</h1>
-          <div className={clsx(styles.subtitle, 'text-subtitle')}>
+          <div className={clsx(styles.subtitle, 'subtitle')}>
             экспертиза более 14 лет в сфере недвижимости
           </div>
         </div>

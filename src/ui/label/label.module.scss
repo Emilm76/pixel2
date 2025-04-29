@@ -4,6 +4,13 @@
   border-radius: 30px;
   background-color: var(--color-dark);
 
+  @media (min-width: 768px) {
+    padding: 13px 24px;
+  }
+  @media (min-width: 1900px) {
+    padding: 12px 24px;
+  }
+
   &::before,
   &::after,
   span::before,

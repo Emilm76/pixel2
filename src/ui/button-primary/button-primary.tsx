@@ -12,11 +12,7 @@ export function ButtonPrimary({
   className?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button
-      type="button"
-      className={clsx(styles.button, className, 'text-p1')}
-      {...props}
-    >
+    <button type="button" className={clsx(styles.button, className)} {...props}>
       <div className={styles.wrapper}>
         <span className={styles.text}>{text}</span>
         <div className={styles.icon}>

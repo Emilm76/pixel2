@@ -9,7 +9,7 @@ export function Label({
   className?: string;
 }) {
   return (
-    <div className={clsx(styles.label, className, 'text-p1')}>
+    <div className={clsx(styles.label, className, 'p1')}>
       <span>{children}</span>
     </div>
   );
