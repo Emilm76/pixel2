@@ -2,13 +2,9 @@
 import gsap from 'gsap';
 import 'lenis/dist/lenis.css';
 import { ReactLenis } from 'lenis/react';
-import { useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
-export function LenisScrollProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function LenisScrollProvider({ children }: { children: ReactNode }) {
   const lenisRef = useRef();
 
   useEffect(() => {

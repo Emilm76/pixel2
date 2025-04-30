@@ -1,8 +1,8 @@
 import { ButtonPrimary } from '@/ui/button-primary/button-primary';
 import Image, { StaticImageData } from 'next/image';
-import styles from './case-second.module.scss';
+import styles from './case-preview.module.scss';
 
-export function Case({
+export function CasePreview({
   image,
   title,
   text,

@@ -11,6 +11,8 @@ import styles from './header.module.scss';
 
 export function Header() {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
+  // const [isScrollDown, setIsScrollDown] = useState(false);
+  // const lenis = useLenis(handleScroll);
 
   function handleBurgerBtnClick() {
     setIsBurgerOpen(!isBurgerOpen);
@@ -28,9 +30,26 @@ export function Header() {
     };
   }, [isBurgerOpen]);
 
+  // function handleScroll(lenis: Lenis | undefined) {
+  //   if (!lenis) return;
+
+  //   console.log(lenis.direction);
+
+  //   if (lenis.direction === 1) {
+  //     setIsScrollDown(true);
+  //   } else if (lenis.direction === -1) {
+  //     setIsScrollDown(false);
+  //   }
+  // }
+
+  // const headerTranslate = isScrollDown ? '-100%' : '0';
+
   return (
     <>
-      <header className={clsx(styles.header, isBurgerOpen && styles._open)}>
+      <header
+        className={clsx(styles.header, isBurgerOpen && styles._open)}
+        // style={{ transform: `translateY(${headerTranslate})` }}
+      >
         <div className={clsx(styles.container, 'container')}>
           <button
             type="button"

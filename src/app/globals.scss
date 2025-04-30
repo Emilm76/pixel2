@@ -9,6 +9,7 @@
   --color-purple: #9e69cc;
   --color-dark: #2b2c36;
   --ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-in-out-back-2: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   @media (min-width: 768px) {
     --header-height: 88px;
@@ -336,4 +337,26 @@ body {
 
 .purple {
   color: var(--color-purple);
+}
+
+.list {
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 24px;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-purple);
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+    + li {
+      margin-top: 8px;
+    }
+  }
 }

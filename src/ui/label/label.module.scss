@@ -1,15 +1,6 @@
 .label {
   position: relative;
-  padding: 10px 16px;
-  border-radius: 30px;
   background-color: var(--color-dark);
-
-  @media (min-width: 768px) {
-    padding: 13px 24px;
-  }
-  @media (min-width: 1900px) {
-    padding: 12px 24px;
-  }
 
   &::before,
   &::after,
@@ -20,30 +11,50 @@
     position: absolute;
     width: 6px;
     height: 6px;
+    border-width: 0;
+    border-style: solid;
+    border-color: #3f404a;
   }
 
   &::before {
     top: 0;
     left: 0;
-    border-left: 1px solid #3f404a;
-    border-top: 1px solid #3f404a;
+    border-left-width: 1px;
+    border-top-width: 1px;
   }
   &::after {
     top: 0;
     right: 0;
-    border-right: 1px solid #3f404a;
-    border-top: 1px solid #3f404a;
+    border-right-width: 1px;
+    border-top-width: 1px;
   }
   span::before {
     bottom: 0;
     left: 0;
-    border-left: 1px solid #3f404a;
-    border-bottom: 1px solid #3f404a;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
   }
   span::after {
     bottom: 0;
     right: 0;
-    border-right: 1px solid #3f404a;
-    border-bottom: 1px solid #3f404a;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
   }
+}
+
+.text {
+  border-radius: 16px;
+  padding: 10px 16px;
+
+  @media (min-width: 768px) {
+    padding: 13px 24px;
+  }
+  @media (min-width: 1900px) {
+    padding: 12px 24px;
+  }
+}
+
+.number {
+  border-radius: 30px;
+  padding: 10px 24px;
 }

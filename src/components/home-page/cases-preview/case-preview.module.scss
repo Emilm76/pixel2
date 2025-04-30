@@ -16,6 +16,9 @@
   @media (min-width: 768px) {
     gap: 48px;
   }
+  @media (min-width: 1300px) {
+    align-items: start;
+  }
 
   + .blok {
     border-top-width: 1px;

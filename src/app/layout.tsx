@@ -3,6 +3,7 @@ import { Header } from '@/components/header/header';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Sofia_Sans_Extra_Condensed, Unbounded } from 'next/font/google';
+import { ReactNode } from 'react';
 import './globals.scss';
 import { LenisScrollProvider } from './providers/lenis-provider';
 
@@ -26,7 +27,7 @@ const unbounded = Unbounded({
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="ru" className={clsx(unbounded.className, sofiaSans.variable)}>

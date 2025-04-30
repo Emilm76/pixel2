@@ -1,0 +1,17 @@
+.subtitle {
+  margin-bottom: 32px;
+  @media (min-width: 768px) {
+    margin-bottom: 48px;
+  }
+  @media (min-width: 1300px) {
+    margin-bottom: 80px;
+  }
+}
+
+.container {
+  @media (min-width: 1900px) {
+    display: grid;
+    grid-template-columns: 435px 66.8%;
+    justify-content: space-between;
+  }
+}
