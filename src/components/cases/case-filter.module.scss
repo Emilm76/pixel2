@@ -1,0 +1,51 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+
+  @media (min-width: 768px) {
+    gap: 56px;
+  }
+  @media (min-width: 1024px) {
+    gap: 72px;
+  }
+
+  li {
+    position: relative;
+    cursor: pointer;
+    color: var(--color-grey-light);
+    transition: color 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-purple);
+      top: 50%;
+      right: -16px;
+      transform: translate(100%, -50%);
+      @media (min-width: 768px) {
+        right: -24px;
+      }
+      @media (min-width: 1024px) {
+        right: -32px;
+      }
+    }
+    &:last-child {
+      &::after {
+        content: '';
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: var(--color-purple);
+    }
+
+    &.checked {
+      color: var(--color-grey);
+      cursor: default;
+    }
+  }
+}

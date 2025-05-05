@@ -1,4 +1,4 @@
-import { ButtonPrimary } from '@/ui/button-primary/button-primary';
+import { ButtonPrimary } from '@/ui/button/button-primary';
 import Image, { StaticImageData } from 'next/image';
 import styles from './case-preview.module.scss';
 
@@ -17,7 +17,7 @@ export function CasePreview({
         <Image
           className={styles.image}
           src={image}
-          alt="Логотип Pixel"
+          alt={title}
           width={876}
           height={400}
         />

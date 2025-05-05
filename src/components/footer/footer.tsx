@@ -36,7 +36,7 @@ export function Footer() {
           <Label>Встретиться</Label>
           <div className={styles.infoWrapper}>
             <div className="h3">
-              г. Ставрополь, ул. Комсомольская, 58А, офис 1001
+              г. Ставрополь, ул. Комсомольская, 58А, офис 3008
             </div>
           </div>
         </div>

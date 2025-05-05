@@ -1,4 +1,4 @@
-import { ButtonPrimary } from '@/ui/button-primary/button-primary';
+import { ButtonPrimary } from '@/ui/button/button-primary';
 import { Label } from '@/ui/label/label';
 import clsx from 'clsx';
 import styles from './main-section.module.scss';

@@ -1,8 +1,7 @@
 'use client';
-
 import { BurgerIcon } from '@/images/icons/burger';
 import logoImg from '@/images/logo.svg';
-import { ButtonArrow } from '@/ui/button-arrow/button-arrow';
+import { ButtonArrow } from '@/ui/button/button-arrow';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';

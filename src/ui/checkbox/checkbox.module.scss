@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+
+  label {
+    color: var(--color-grey);
+  }
+}

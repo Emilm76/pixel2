@@ -1,0 +1,7 @@
+.card {
+  height: 500px;
+  background-color: var(--color-purple);
+  @media (min-width: 768px) {
+    height: 700px;
+  }
+}

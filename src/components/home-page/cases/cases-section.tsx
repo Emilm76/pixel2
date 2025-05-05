@@ -1,11 +1,25 @@
-import hermitageImg from '@/images/cases/hermitage.jpg';
-import moddImg from '@/images/cases/modd.jpg';
-import { ButtonPrimary } from '@/ui/button-primary/button-primary';
+'use client';
+import { CASES } from '@/app/constants';
+import { Case } from '@/components/cases/case';
+import { CasesFilter } from '@/components/cases/case-filter';
+import { ButtonArrow } from '@/ui/button/button-arrow';
+import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
-import { Case } from './case';
+import { useState } from 'react';
 import styles from './cases-section.module.scss';
 
+const ITEMS_PER_PAGE = 4;
+
 export function CasesSection() {
+  const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + ITEMS_PER_PAGE);
+  };
+
+  const visibleCases = CASES.slice(0, visibleCount);
+  const hasMore = visibleCount < CASES.length;
+
   return (
     <section className="section-pt">
       <div className="container">
@@ -19,23 +33,29 @@ export function CasesSection() {
         </h2>
 
         <div className={styles.header}>
-          <div className={styles.filter}></div>
+          <CasesFilter />
           <ButtonPrimary text="Все кейсы" />
         </div>
       </div>
 
       <div className={clsx(styles.grid, 'container')}>
-        <Case
-          image={hermitageImg}
-          title="WEB"
-          text="Сайт жилого комплекса «Эрмитаж» – входит в ТОП-20 сайтов премии WOW AWARDS-2024"
-        />
-        <Case
-          image={moddImg}
-          title="CONTEXT"
-          text="Успешный кейс по работе с группой компаний «ЮгСтройИнвест», сертифицированный и подтверждённый Яндексом"
-        />
+        {visibleCases.map((caseItem) => (
+          <Case
+            image={caseItem.image}
+            labels={caseItem.labels}
+            name={caseItem.name}
+            key={caseItem.id}
+          />
+        ))}
       </div>
+
+      {hasMore && (
+        <ButtonArrow
+          className={styles.loadMoreBtn}
+          text="Загрузить ещё"
+          onClick={handleLoadMore}
+        />
+      )}
     </section>
   );
 }
