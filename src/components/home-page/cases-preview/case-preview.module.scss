@@ -1,5 +1,4 @@
 .blok {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -42,12 +41,12 @@
     padding-right: var(--container-padding);
     @media (min-width: 768px) {
       border-left-width: 1px;
-      // margin-left: -1px;
+      border-left-color: transparent;
+      transform: translateX(-1px);
     }
   }
 
   &:hover {
-    z-index: 2;
     border-color: var(--color-purple);
   }
 

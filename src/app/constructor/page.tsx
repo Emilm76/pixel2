@@ -1,3 +1,9 @@
+import { MainSection } from '@/components/constructor-page/main/main-section';
+
 export default function Constructor() {
-  return <div>Constructor</div>;
+  return (
+    <main>
+      <MainSection />
+    </main>
+  );
 }

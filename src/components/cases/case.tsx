@@ -13,13 +13,15 @@ export function Case({
 }) {
   return (
     <div className={styles.blok}>
-      <Image
-        className={styles.image}
-        src={image}
-        alt={name}
-        width={876}
-        height={400}
-      />
+      <div className={styles.imageWrapper}>
+        <Image
+          className={styles.image}
+          src={image}
+          alt={name}
+          width={876}
+          height={400}
+        />
+      </div>
       <div className={styles.labelsWrapper}>
         {labels.map((label, i) => (
           <Label key={i}>{label}</Label>

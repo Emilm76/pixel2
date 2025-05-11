@@ -34,7 +34,7 @@ export function CasesSection() {
 
         <div className={styles.header}>
           <CasesFilter />
-          <ButtonPrimary text="Все кейсы" />
+          <ButtonPrimary href="/cases" text="Все кейсы" />
         </div>
       </div>
 

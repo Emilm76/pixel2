@@ -6,7 +6,7 @@ export function Label({
   variant = 'text',
   className,
 }: {
-  children: string;
+  children: string | number;
   variant?: 'text' | 'number';
   className?: string;
 }) {

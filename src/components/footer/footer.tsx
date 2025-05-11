@@ -21,12 +21,20 @@ export function Footer() {
           <Label>Написать</Label>
           <div className={styles.infoWrapper}>
             <div className="button-text-lg">
-              <Link href="" className="h3">
+              <Link
+                href="https://t.me/melanyasamoylenko"
+                target="_blank"
+                className="h3"
+              >
                 Telegram
               </Link>
             </div>
             <div className="button-text-lg">
-              <Link href="" className="h3">
+              <Link
+                href="https://wa.me/79288204033"
+                target="_blank"
+                className="h3"
+              >
                 WhatsApp
               </Link>
             </div>

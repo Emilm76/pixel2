@@ -6,7 +6,7 @@ import { TextField } from '@/ui/field/text-field';
 import { FormEvent } from 'react';
 import styles from './form.module.scss';
 
-export function Form() {
+export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     // Prevent the browser from reloading the page
     e.preventDefault();
@@ -28,16 +28,18 @@ export function Form() {
       method="post"
       // onSubmit={handleSubmit}
     >
-      <TextField
-        className={styles.input}
-        inputProps={{
-          type: 'text',
-          name: 'name',
-          placeholder: 'Ваше имя',
-          autoComplete: 'off',
-          required: true,
-        }}
-      />
+      {variant === 'md' && (
+        <TextField
+          className={styles.input}
+          inputProps={{
+            type: 'text',
+            name: 'name',
+            placeholder: 'Ваше имя',
+            autoComplete: 'off',
+            required: true,
+          }}
+        />
+      )}
       <TelField
         className={styles.input}
         inputProps={{
@@ -51,7 +53,10 @@ export function Form() {
 
       <ButtonPrimary className={styles.button} type="submit" text="Отправить" />
 
-      <Checkbox className={styles.checkbox} inputProps={{ name: 'agree' }} />
+      <Checkbox
+        className={styles.checkbox}
+        inputProps={{ name: 'agree', required: true }}
+      />
     </form>
   );
 }

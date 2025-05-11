@@ -3,51 +3,81 @@ import { BurgerIcon } from '@/images/icons/burger';
 import logoImg from '@/images/logo.svg';
 import { ButtonArrow } from '@/ui/button/button-arrow';
 import clsx from 'clsx';
+import Lenis from 'lenis';
+import { useLenis } from 'lenis/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import styles from './header.module.scss';
 
 export function Header() {
+  const pathname = usePathname();
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
-  // const [isScrollDown, setIsScrollDown] = useState(false);
-  // const lenis = useLenis(handleScroll);
+  const [hideHeader, setHideHeader] = useState(false);
+  const lenis = useLenis(handleScroll);
+
+  const isConstructorPage = pathname.startsWith('/constructor');
 
   function handleBurgerBtnClick() {
     setIsBurgerOpen(!isBurgerOpen);
   }
 
   useEffect(() => {
+    if (!lenis) return;
+
+    setHideHeader(false);
+
     if (isBurgerOpen) {
-      document.body.style.overflow = 'hidden';
+      lenis.stop();
     } else {
-      document.body.style.overflow = '';
+      lenis.start();
     }
 
     return () => {
-      document.body.style.overflow = '';
+      lenis.start();
     };
   }, [isBurgerOpen]);
 
-  // function handleScroll(lenis: Lenis | undefined) {
-  //   if (!lenis) return;
+  function handleScroll(lenis: Lenis | undefined) {
+    if (!lenis) return;
+    if (isBurgerOpen) return;
 
-  //   console.log(lenis.direction);
+    if (lenis.direction === 1) {
+      setHideHeader(true);
+    } else if (lenis.direction === -1) {
+      setHideHeader(false);
+    }
+  }
 
-  //   if (lenis.direction === 1) {
-  //     setIsScrollDown(true);
-  //   } else if (lenis.direction === -1) {
-  //     setIsScrollDown(false);
-  //   }
-  // }
+  const headerTranslate = hideHeader ? 'translateY(-100%)' : 'translateY(0)';
 
-  // const headerTranslate = isScrollDown ? '-100%' : '0';
+  const linksList = isConstructorPage
+    ? [
+        { name: 'Сгенерировать лого в конструкторе', href: '/' },
+        { name: 'Заказать лого у студии', href: '/' },
+        { name: 'Кейсы', href: '#cases' },
+      ]
+    : [
+        { name: 'О студии', href: '/' },
+        { name: 'Что делаем?', href: '/' },
+        { name: 'Кейсы', href: '/cases' },
+        { name: 'Генератор логотипов', href: '/constructor' },
+      ];
+
+  const lastLink = linksList[linksList.length - 1];
+
+  const talkButton = isConstructorPage ? (
+    <ButtonArrow className={styles.talkButton} text="Оставить заявку" />
+  ) : (
+    <ButtonArrow className={styles.talkButton} text="Обсудим проект" />
+  );
 
   return (
     <>
       <header
         className={clsx(styles.header, isBurgerOpen && styles._open)}
-        // style={{ transform: `translateY(${headerTranslate})` }}
+        style={{ transform: headerTranslate }}
       >
         <div className={clsx(styles.container, 'container')}>
           <button
@@ -64,22 +94,15 @@ export function Header() {
 
           <nav className={styles.nav}>
             <ul role="list">
-              <li className="button-text">
-                <Link href="/">О студии</Link>
-              </li>
-              <li className="button-text">
-                <Link href="/">Что делаем?</Link>
-              </li>
-              <li className="button-text">
-                <Link href="/cases">Кейсы</Link>
-              </li>
-              <li className="button-text">
-                <Link href="/constructor">Генератор логотипов</Link>
-              </li>
+              {linksList.map((link, index) => (
+                <li className="button-text" key={index}>
+                  <Link href={link.href}>{link.name}</Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
-          <ButtonArrow className={styles.talkButton} text="Обсудим проект" />
+          {talkButton}
         </div>
       </header>
 
@@ -89,27 +112,24 @@ export function Header() {
           <div className="container">
             <nav className={clsx(styles.burgerNav, 'h3')}>
               <ul className={styles.burgerNavColumn} role="list">
-                <li>
-                  <Link href="/">О студии</Link>
-                </li>
-                <li>
-                  <Link href="/">Что делаем?</Link>
-                </li>
-                <li>
-                  <Link href="/cases">Кейсы</Link>
-                </li>
+                {linksList.map((link, index) => {
+                  if (link === lastLink) return;
+
+                  return (
+                    <li className="button-text" key={index}>
+                      <Link href={link.href}>{link.name}</Link>
+                    </li>
+                  );
+                })}
               </ul>
               <ul className={styles.burgerNavColumn} role="list">
-                <li>
-                  <Link href="/constructor">Генератор логотипов</Link>
+                <li className="button-text">
+                  <Link href={lastLink.href}>{lastLink.name}</Link>
                 </li>
               </ul>
             </nav>
 
-            <ButtonArrow
-              className={styles.burgerTalkButton}
-              text="Обсудим проект"
-            />
+            {talkButton}
           </div>
         </div>
       </div>

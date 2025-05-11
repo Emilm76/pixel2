@@ -1,3 +1,4 @@
+import { VideoLazyLoad } from '@/ui/video/video-lazy-load';
 import clsx from 'clsx';
 import styles from './clients-section.module.scss';
 
@@ -5,8 +6,23 @@ export function ClientsSection() {
   return (
     <section className="section-pt">
       <div className={clsx(styles.container, 'container')}>
-        <div className={styles.videoWrapper}>
-          <div className={styles.video}></div>
+        <div className={styles.videoBlock}>
+          <div className={styles.videoWrapper}>
+            <VideoLazyLoad
+              className={styles.video}
+              src={{
+                webm: '/video/purple-abstract-45-1280.webm',
+                mp4: '/video/purple-abstract-30-1280.mp4',
+                mobileWebm: '/video/purple-abstract-45-768-400.webm',
+                mobileMp4: '/video/purple-abstract-30-768-400.mp4',
+              }}
+              videoProps={{
+                poster: '/images/purple-abstract-preview.jpg',
+                width: '960',
+                height: '760',
+              }}
+            />
+          </div>
           <p className={clsx(styles.subtitle, 'subtitle')}>
             Уже 14 лет мы успешно помогаем бизнесу решать задачи с помощью
             маркетинговых инструментов — будь то небольшие кофейни или крупные
