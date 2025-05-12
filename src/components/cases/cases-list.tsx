@@ -3,13 +3,14 @@ import { CASES } from '@/app/constants';
 import { Case } from '@/components/cases/case';
 import { CasesFilter } from '@/components/cases/case-filter';
 import { ButtonArrow } from '@/ui/button/button-arrow';
+import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
 import { useState } from 'react';
-import styles from './cases-expanded-section.module.scss';
+import styles from './cases-list.module.scss';
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 4;
 
-export function CasesExpandedSection() {
+export function CasesSection() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
   const handleLoadMore = () => {
@@ -20,9 +21,10 @@ export function CasesExpandedSection() {
   const hasMore = visibleCount < CASES.length;
 
   return (
-    <section className={clsx(styles.section, 'section-pt-3')}>
-      <div className="container">
+    <section className="section-pt">
+      <div className={clsx(styles.header, 'container')}>
         <CasesFilter />
+        <ButtonPrimary href="/cases" text="Все кейсы" />
       </div>
 
       <div className={clsx(styles.grid, 'container')}>

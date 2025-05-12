@@ -18,7 +18,8 @@
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-imask": "^7.6.1"
+    "react-imask": "^7.6.1",
+    "react-responsive": "^10.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

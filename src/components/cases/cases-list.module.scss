@@ -1,5 +1,12 @@
-.section {
-  margin-top: var(--header-height);
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media (min-width: 1300px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .grid {

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { LogosSlider } from './logos-slider';
+import { LogosSlider } from '../../logos/logos-slider';
 import styles from './main-section.module.scss';
 
 export function MainSection() {
@@ -18,7 +18,9 @@ export function MainSection() {
             и всех, кому нужно выделиться в информационном поле.
           </div>
         </div>
+      </div>
 
+      <div className={clsx(styles.logosContainer, 'container')}>
         <LogosSlider />
       </div>
     </section>

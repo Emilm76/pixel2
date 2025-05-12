@@ -35,6 +35,8 @@ export function VideoLazyLoad({
             });
 
             target.load();
+            target.play();
+
             obs.unobserve(target);
           }
         });
@@ -48,29 +50,28 @@ export function VideoLazyLoad({
   }, []);
 
   // Автоматическое play/pause
-  useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
+  // useEffect(() => {
+  //   const videoEl = videoRef.current;
+  //   if (!videoEl) return;
 
-    const visibilityObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            videoEl.play().catch(() => {
-              console.log('video play() error');
-            });
-          } else {
-            videoEl.pause();
-          }
-        });
-      },
-      { threshold: 0 }
-    );
+  //   const visibilityObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           videoEl.play();
+  //           console.log(videoEl);
+  //         } else {
+  //           videoEl.pause();
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0 }
+  //   );
 
-    visibilityObserver.observe(videoEl);
+  //   visibilityObserver.observe(videoEl);
 
-    return () => visibilityObserver.disconnect();
-  }, []);
+  //   return () => visibilityObserver.disconnect();
+  // }, []);
 
   return (
     <video
