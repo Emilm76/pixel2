@@ -6,11 +6,44 @@
 
   &:hover {
     color: var(--color-purple);
+  }
+
+  &.variantRight {
     .icon1 {
-      transform: translateX(0);
+      transform: translateX(-100%);
     }
     .icon2 {
-      transform: translateX(100%);
+      transform: translateX(0);
+    }
+
+    &:hover {
+      color: var(--color-purple);
+      .icon1 {
+        transform: translateX(0);
+      }
+      .icon2 {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  &.variantLeft {
+    flex-direction: row-reverse;
+
+    .icon1 {
+      transform: translateX(0) rotate(180deg);
+    }
+    .icon2 {
+      transform: translateX(100%) rotate(180deg);
+    }
+
+    &:hover {
+      .icon1 {
+        transform: translateX(-100%) rotate(180deg);
+      }
+      .icon2 {
+        transform: translateX(0) rotate(180deg);
+      }
     }
   }
 }
@@ -33,12 +66,6 @@
   justify-content: center;
   align-items: center;
   transition: transform 0.6s var(--ease-in-out-back);
-}
-.icon1 {
-  transform: translateX(-100%);
-}
-.icon2 {
-  transform: translateX(0);
 }
 
 .svg {

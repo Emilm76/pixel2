@@ -25,7 +25,9 @@ export function FormSection() {
 
       <div className={clsx(styles.formContainer, 'container')}>
         <div>
-          <h3 className="h3">Начните продвижение с нами сейчас</h3>
+          <h3 className={clsx(styles.title, 'h3')}>
+            Начните продвижение с нами сейчас
+          </h3>
           <p className={clsx(styles.subtitle, 'p1')}>
             Сделайте запрос, и мы подготовим план продвижения вашего проекта
           </p>

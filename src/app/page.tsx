@@ -1,5 +1,5 @@
+import { CasesSection } from '@/components/cases/cases-section';
 import { CasesPreviewSection } from '@/components/home-page/cases-preview/cases-preview-section';
-import { CasesSection } from '@/components/home-page/cases/cases-section';
 import { ClientsSection } from '@/components/home-page/clients/clients-section';
 import { CommandSection } from '@/components/home-page/commands/command-section';
 import { FormSection } from '@/components/home-page/form/form-section';

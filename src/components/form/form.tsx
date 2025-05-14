@@ -33,7 +33,7 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
           className={styles.input}
           inputProps={{
             type: 'text',
-            name: 'name',
+            name: 'user-name',
             placeholder: 'Ваше имя',
             autoComplete: 'off',
             required: true,
@@ -44,7 +44,7 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
         className={styles.input}
         inputProps={{
           type: 'text',
-          name: 'tel',
+          name: 'user-tel',
           placeholder: 'Телефон',
           autoComplete: 'off',
           required: true,

@@ -3,7 +3,6 @@
   --section-min-h: 800px;
 
   position: relative;
-  text-align: center;
   min-height: var(--section-min-h);
   height: 100vh;
 
@@ -71,6 +70,7 @@
 
 .textBlock {
   padding-top: var(--section-pt);
+  text-align: center;
 }
 
 .subtitle {

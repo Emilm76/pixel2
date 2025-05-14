@@ -1,3 +1,4 @@
+import { ModalButton } from '@/components/modal/modal-button';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import { Label } from '@/ui/label/label';
 import clsx from 'clsx';
@@ -20,7 +21,10 @@ export function MainSection() {
             <Label>вэб-разработка</Label>
             <Label>брендинг</Label>
           </div>
-          <ButtonPrimary text="Оставить заявку" />
+
+          <ModalButton>
+            <ButtonPrimary text="Оставить заявку" />
+          </ModalButton>
         </div>
       </div>
     </section>

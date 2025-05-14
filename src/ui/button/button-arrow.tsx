@@ -1,21 +1,24 @@
 import { ArrowRightIcon } from '@/images/icons/arrow-right';
 import clsx from 'clsx';
-import { ButtonHTMLAttributes } from 'react';
+import Link from 'next/link';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import styles from './button-arrow.module.scss';
+
+export type ButtonArrowProps = { text: string } & ButtonArrowWrapperProps;
 
 export function ButtonArrow({
   text,
+  variant = 'right',
   className,
   ...props
-}: {
-  text: string;
-  className?: string;
-} & ButtonHTMLAttributes<HTMLButtonElement>) {
+}: ButtonArrowProps) {
+  const classVariant =
+    variant === 'right' ? styles.variantRight : styles.variantLeft;
+
   return (
-    <button
-      type="button"
-      className={clsx(styles.button, className, 'p1')}
+    <ButtonArrowWrapper
       {...props}
+      className={clsx(styles.button, classVariant, className, 'p1')}
     >
       <span>{text}</span>
       <div className={styles.icon}>
@@ -26,6 +29,45 @@ export function ButtonArrow({
           <ArrowRightIcon className={styles.svg} />
         </div>
       </div>
+    </ButtonArrowWrapper>
+  );
+}
+
+type ButtonArrowWrapperProps =
+  | ({
+      href?: undefined;
+      variant?: 'right' | 'left';
+      className?: string;
+    } & ButtonHTMLAttributes<HTMLButtonElement>)
+  | ({
+      href: string;
+      variant?: 'right' | 'left';
+      className?: string;
+    } & AnchorHTMLAttributes<HTMLAnchorElement>);
+
+function ButtonArrowWrapper({
+  className,
+  children,
+  ...props
+}: ButtonArrowWrapperProps) {
+  if (props.href) {
+    return (
+      <Link
+        href={props.href}
+        className={className}
+        {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
+      >
+        {children}
+      </Link>
+    );
+  }
+
+  return (
+    <button
+      className={className}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
+    >
+      {children}
     </button>
   );
 }

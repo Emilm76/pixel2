@@ -17,17 +17,17 @@ import Image from 'next/image';
 import styles from './logos-slider.module.scss';
 
 const images = [
-  { src: logo1Img },
-  { src: logo2Img },
-  { src: logo3Img },
-  { src: logo4Img },
-  { src: logo5Img },
-  { src: logo6Img },
-  { src: logo8Img },
-  { src: logo9Img },
-  { src: logo10Img },
-  { src: logo11Img },
-  { src: logo12Img },
+  logo1Img,
+  logo2Img,
+  logo3Img,
+  logo4Img,
+  logo5Img,
+  logo6Img,
+  logo8Img,
+  logo9Img,
+  logo10Img,
+  logo11Img,
+  logo12Img,
 ];
 
 export function LogosSlider() {
@@ -38,10 +38,10 @@ export function LogosSlider() {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        {images.map((image, index) => {
+        {images.map((src, index) => {
           return (
             <div className={clsx(styles.slide, 'embla__slide')} key={index}>
-              <Image src={image.src} width={283} height={283} alt="" />
+              <Image src={src} width={283} height={283} alt="" />
             </div>
           );
         })}

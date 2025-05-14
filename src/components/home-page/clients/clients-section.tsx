@@ -4,7 +4,7 @@ import styles from './clients-section.module.scss';
 
 export function ClientsSection() {
   return (
-    <section className="section-pt">
+    <section id="about" className="section-pt">
       <div className={clsx(styles.container, 'container')}>
         <div className={styles.videoBlock}>
           <div className={styles.videoWrapper}>

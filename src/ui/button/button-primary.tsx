@@ -4,17 +4,7 @@ import Link from 'next/link';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import styles from './button-primary.module.scss';
 
-export type ButtonPrimaryProps =
-  | ({
-      href?: undefined;
-      text?: string;
-      className?: string;
-    } & ButtonHTMLAttributes<HTMLButtonElement>)
-  | ({
-      href: string;
-      text?: string;
-      className?: string;
-    } & AnchorHTMLAttributes<HTMLAnchorElement>);
+export type ButtonPrimaryProps = { text: string } & ButtonPrimaryWrapperProps;
 
 export function ButtonPrimary({
   text,
@@ -22,7 +12,7 @@ export function ButtonPrimary({
   ...props
 }: ButtonPrimaryProps) {
   return (
-    <ButtonPrimaryWrapper className={className} {...props}>
+    <ButtonPrimaryWrapper {...props} className={clsx(styles.button, className)}>
       <div className={styles.wrapper}>
         <span className={styles.text}>{text}</span>
         <div className={styles.icon}>
@@ -40,16 +30,26 @@ export function ButtonPrimary({
   );
 }
 
+type ButtonPrimaryWrapperProps =
+  | ({
+      href?: undefined;
+      className?: string;
+    } & ButtonHTMLAttributes<HTMLButtonElement>)
+  | ({
+      href: string;
+      className?: string;
+    } & AnchorHTMLAttributes<HTMLAnchorElement>);
+
 function ButtonPrimaryWrapper({
   className,
   children,
   ...props
-}: ButtonPrimaryProps) {
+}: ButtonPrimaryWrapperProps) {
   if (props.href) {
     return (
       <Link
         href={props.href}
-        className={clsx(styles.button, className)}
+        className={className}
         {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {children}
@@ -59,7 +59,7 @@ function ButtonPrimaryWrapper({
 
   return (
     <button
-      className={clsx(styles.button, className)}
+      className={className}
       {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}

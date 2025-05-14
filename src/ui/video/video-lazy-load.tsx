@@ -50,28 +50,28 @@ export function VideoLazyLoad({
   }, []);
 
   // Автоматическое play/pause
-  // useEffect(() => {
-  //   const videoEl = videoRef.current;
-  //   if (!videoEl) return;
+  useEffect(() => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
 
-  //   const visibilityObserver = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           videoEl.play();
-  //           console.log(videoEl);
-  //         } else {
-  //           videoEl.pause();
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0 }
-  //   );
+    const visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoEl.play();
+            console.log(videoEl);
+          } else {
+            videoEl.pause();
+          }
+        });
+      },
+      { threshold: 0 }
+    );
 
-  //   visibilityObserver.observe(videoEl);
+    visibilityObserver.observe(videoEl);
 
-  //   return () => visibilityObserver.disconnect();
-  // }, []);
+    return () => visibilityObserver.disconnect();
+  }, []);
 
   return (
     <video
@@ -85,7 +85,7 @@ export function VideoLazyLoad({
       {src.mobileWebm && (
         <source
           data-src={src.mobileWebm}
-          type="video/webm"
+          type="video/webm; codecs=av01.0.05M.08"
           media="(max-width:768px)"
         />
       )}
@@ -96,7 +96,7 @@ export function VideoLazyLoad({
           media="(max-width:768px)"
         />
       )}
-      <source data-src={src.webm} type="video/webm" />
+      <source data-src={src.webm} type="video/webm; codecs=av01.0.05M.08" />
       <source data-src={src.mp4} type="video/mp4" />
     </video>
   );

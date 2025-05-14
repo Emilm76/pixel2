@@ -1,4 +1,10 @@
+import aizaImg from '@/images/command/aiza.jpg';
+import emilImg from '@/images/command/emil.jpg';
+import milaImg from '@/images/command/mila.jpg';
+import nastyImg from '@/images/command/nasty.jpg';
+import polinaImg from '@/images/command/polina.jpg';
 import clsx from 'clsx';
+import Image from 'next/image';
 import styles from './command-section.module.scss';
 
 export function CommandSection() {
@@ -10,12 +16,21 @@ export function CommandSection() {
         </h2>
         <div className={styles.grid}>
           <div className={styles.workersWrapper}>
-            <div className={styles.worker}></div>
-            <div className={styles.worker}></div>
-            <div className={styles.worker}></div>
-            <div className={styles.worker}></div>
-            <div className={styles.worker}></div>
-            <div className={styles.worker}></div>
+            <div className={styles.worker}>
+              <Image src={nastyImg} width={200} height={200} alt="" />
+            </div>
+            <div className={styles.worker}>
+              <Image src={emilImg} width={200} height={200} alt="" />
+            </div>
+            <div className={styles.worker}>
+              <Image src={polinaImg} width={200} height={200} alt="" />
+            </div>
+            <div className={styles.worker}>
+              <Image src={aizaImg} width={200} height={200} alt="" />
+            </div>
+            <div className={styles.worker}>
+              <Image src={milaImg} width={200} height={200} alt="" />
+            </div>
             <div className={clsx(styles.worker, styles.workerMore)}>
               <span className="h3">50+</span>
             </div>

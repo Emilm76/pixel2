@@ -42,6 +42,7 @@ export function StepsSection() {
       <div className="container">
         <ButtonPrimaryMedia
           className={styles.button}
+          href="/logo-builder/create"
           text="Сгенерировать лого в конструкторе"
           mobileText="Сгенерировать"
         />

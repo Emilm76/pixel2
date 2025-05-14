@@ -1,0 +1,66 @@
+.shadow {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background-color: rgba(9, 0, 32, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out-back);
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 160;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+  transition: opacity 0.3s var(--ease-out-back),
+    transform 0.3s var(--ease-out-back);
+
+  &.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #090020;
+  max-width: 765px;
+}
+
+.content {
+  position: relative;
+  padding: 120px 80px 80px;
+}
+
+.subtitle {
+  margin-top: 24px;
+}
+
+.form {
+  margin-top: 80px;
+
+  button {
+    margin-top: 48px;
+  }
+}
+
+.buttonClose {
+  position: absolute;
+  top: 32px;
+  right: 28px;
+}

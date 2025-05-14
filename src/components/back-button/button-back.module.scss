@@ -1,0 +1,14 @@
+.container {
+  margin-top: var(--header-height);
+  padding-top: 48px;
+  @media (min-width: 768px) {
+    padding-top: 64px;
+  }
+  @media (min-width: 1300px) {
+    padding-top: 80px;
+  }
+}
+
+.button {
+  justify-content: flex-end;
+}

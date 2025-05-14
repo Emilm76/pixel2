@@ -56,7 +56,7 @@ export function VideoLazyPlay({
       {src.mobileWebm && (
         <source
           data-src={src.mobileWebm}
-          type="video/webm"
+          type="video/webm; codecs=av01.0.05M.08"
           media="(max-width:768px)"
         />
       )}
@@ -67,7 +67,7 @@ export function VideoLazyPlay({
           media="(max-width:768px)"
         />
       )}
-      <source data-src={src.webm} type="video/webm" />
+      <source data-src={src.webm} type="video/webm; codecs=av01.0.05M.08" />
       <source data-src={src.mp4} type="video/mp4" />
     </video>
   );
