@@ -22,11 +22,11 @@ export function QuestionsSection() {
         gsap.to(blocksContent[index], {
           y: 0,
           opacity: 1,
-          duration: 1.2,
-          ease: 'back.inOut(1.7)',
+          duration: 0.6,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: block,
-            start: 'bottom bottom',
+            start: 'bottom bottom-=5%',
             // markers: true,
             // onEnter, onLeave, onEnterBack, onLeaveBack
             toggleActions: `play play play reverse`,

@@ -1,4 +1,4 @@
-import { LogosSlider } from '../../logos/logos-slider';
+import { LogosSlider } from '../logos/logos-slider';
 import styles from './request-section.module.scss';
 
 export function RequestSection() {

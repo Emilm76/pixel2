@@ -1,4 +1,4 @@
-import { FormSection } from '@/components/cases-page/form/form-section';
+import { FormSection } from '@/components/cases-page/form-section';
 import { CasesSection } from '@/components/cases/cases-section';
 
 export default function Cases() {

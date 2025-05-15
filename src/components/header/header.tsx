@@ -57,8 +57,8 @@ export function Header() {
 
   const isConstructorPage = pathname.startsWith('/logo-builder');
 
-  function handleBurgerBtnClick() {
-    setIsBurgerOpen(!isBurgerOpen);
+  function toggleBurger() {
+    setIsBurgerOpen((lastState) => !lastState);
   }
 
   useEffect(() => {
@@ -78,8 +78,7 @@ export function Header() {
   }, [isBurgerOpen, dispatch, lenis]);
 
   function handleScroll(lenis: Lenis | undefined) {
-    if (!lenis) return;
-    if (isBurgerOpen) return;
+    if (!lenis || isBurgerOpen) return;
 
     if (lenis.direction === 1) {
       dispatch(hideHeaderAction());
@@ -88,16 +87,22 @@ export function Header() {
     }
   }
 
-  function scrollToSection(href: string) {
-    if (!lenis) return;
-
+  function handleLinkClick(link: HeaderLink) {
     setIsBurgerOpen(false);
-    const id = getAfterNumberSign(href);
-    lenis.scrollTo(`#${id}`, {
-      offset: 100,
-      duration: 0.8,
-      easing: easeInOutSine,
-    });
+    if (!lenis) return;
+    lenis.start();
+
+    if (link.href) {
+    }
+
+    if (link.toSection) {
+      const id = getAfterNumberSign(link.toSection);
+      lenis.scrollTo(`#${id}`, {
+        offset: 100,
+        duration: 0.8,
+        easing: easeInOutSine,
+      });
+    }
   }
 
   const headerTranslate = isHeaderHidden
@@ -122,7 +127,7 @@ export function Header() {
           <button
             type="button"
             className={styles.burgerButton}
-            onClick={handleBurgerBtnClick}
+            onClick={toggleBurger}
           >
             <BurgerIcon className={styles.burgerIcon} />
           </button>
@@ -135,8 +140,8 @@ export function Header() {
             <ul role="list">
               {linksList.map((link, index) => {
                 return (
-                  <li className="button-text" key={index}>
-                    <HeaderLink link={link} callback={scrollToSection} />
+                  <li key={index}>
+                    <HeaderLink link={link} callback={handleLinkClick} />
                   </li>
                 );
               })}
@@ -150,7 +155,7 @@ export function Header() {
       </header>
 
       <div className={clsx(styles.burger, isBurgerOpen && styles._open)}>
-        <div className={styles.bg} onClick={handleBurgerBtnClick}></div>
+        <div className={styles.bg} onClick={toggleBurger}></div>
         <div className={styles.burgerWrapper}>
           <div className="container">
             <nav className={clsx(styles.burgerNav, 'h3')}>
@@ -159,15 +164,15 @@ export function Header() {
                   if (link === lastLink) return;
 
                   return (
-                    <li className="button-text" key={index}>
-                      <HeaderLink link={link} callback={scrollToSection} />
+                    <li key={index}>
+                      <HeaderLink link={link} callback={handleLinkClick} />
                     </li>
                   );
                 })}
               </ul>
               <ul className={styles.burgerNavColumn} role="list">
-                <li className="button-text">
-                  <HeaderLink link={lastLink} callback={scrollToSection} />
+                <li>
+                  <HeaderLink link={lastLink} callback={handleLinkClick} />
                 </li>
               </ul>
             </nav>
@@ -185,15 +190,14 @@ export function Header() {
 function HeaderLink({
   link,
   callback,
-  ...props
 }: {
   link: HeaderLink;
-  callback: (link: string) => void;
+  callback: (link: HeaderLink) => void;
 }) {
   if (link.href) {
     return (
-      <Link {...props} href={link.href}>
-        {link.name}
+      <Link className="button-text" href={link.href}>
+        <span onClick={() => callback(link)}>{link.name}</span>
       </Link>
     );
   }
@@ -201,8 +205,8 @@ function HeaderLink({
   const toSection = link.toSection;
   if (toSection) {
     return (
-      <Link {...props} href={toSection} scroll={false}>
-        <span onClick={() => callback(toSection)}>{link.name}</span>
+      <Link className="button-text" href={toSection} scroll={false}>
+        <span onClick={() => callback(link)}>{link.name}</span>
       </Link>
     );
   }

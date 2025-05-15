@@ -3,11 +3,10 @@ import { ButtonPrimary } from '@/ui/button/button-primary';
 import { Checkbox } from '@/ui/checkbox/checkbox';
 import { TelField } from '@/ui/field/tel-field';
 import { TextField } from '@/ui/field/text-field';
-import { FormEvent } from 'react';
 import styles from './form.module.scss';
 
 export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  /*function handleSubmit(e: FormEvent<HTMLFormElement>) {
     // Prevent the browser from reloading the page
     e.preventDefault();
 
@@ -21,7 +20,7 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
     // Or you can work with it as a plain object:
     const formJson = Object.fromEntries(formData.entries());
     console.log(formJson);
-  }
+  }*/
 
   return (
     <form

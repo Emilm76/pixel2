@@ -1,4 +1,4 @@
-import { ButtonBack } from '@/components/back-button/button-back';
+import { ButtonBack } from '@/components/button-back/button-back';
 import { CreateSection } from '@/components/create-page/create-section';
 
 export default function Constructor() {

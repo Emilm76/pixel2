@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { LogosSlider } from '../../logos/logos-slider';
+import { LogosSlider } from '../logos/logos-slider';
 import styles from './main-section.module.scss';
 
 export function MainSection() {

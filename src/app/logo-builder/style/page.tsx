@@ -1,4 +1,4 @@
-import { ButtonBack } from '@/components/back-button/button-back';
+import { ButtonBack } from '@/components/button-back/button-back';
 import { SelectColorSection } from '@/components/style-page/select-color-section';
 import { SelectLogoSection } from '@/components/style-page/select-logo-section';
 

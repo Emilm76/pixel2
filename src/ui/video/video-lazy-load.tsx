@@ -35,7 +35,6 @@ export function VideoLazyLoad({
             });
 
             target.load();
-            target.play();
 
             obs.unobserve(target);
           }
@@ -57,9 +56,11 @@ export function VideoLazyLoad({
     const visibilityObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          if (videoEl.readyState < 3) return;
           if (entry.isIntersecting) {
-            videoEl.play();
-            console.log(videoEl);
+            if (videoEl.paused) {
+              videoEl.play();
+            }
           } else {
             videoEl.pause();
           }
