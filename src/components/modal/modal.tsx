@@ -1,19 +1,18 @@
 'use client';
 import { Form } from '@/components/form/form';
-import {
-  hideModal,
-  selectModalVisibility,
-} from '@/lib/features/modal/modal-slice';
-import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
-import { useEffect } from 'react';
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import { ButtonClose } from '../../ui/button/button-close';
 import styles from './modal.module.scss';
 
-export function Modal() {
-  const isOpen = useAppSelector(selectModalVisibility);
-  const dispatch = useAppDispatch();
+export function Modal({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+}) {
   const lenis = useLenis();
 
   useEffect(() => {
@@ -37,7 +36,7 @@ export function Modal() {
         className={clsx(styles.modal, isOpen && styles.open)}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
-            dispatch(hideModal());
+            setIsOpen(false);
           }
         }}
       >
@@ -45,7 +44,7 @@ export function Modal() {
           <div className={styles.content}>
             <ButtonClose
               className={styles.buttonClose}
-              onClick={() => dispatch(hideModal())}
+              onClick={() => setIsOpen(false)}
             />
             <div className="h3">
               Оставьте контактные данные, менеджер свяжется с вами

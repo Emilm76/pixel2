@@ -17,7 +17,7 @@
     background-color: #023856;
   }
   &:nth-child(3) {
-    color: #ffffff;
+    color: var(--color-white);
     background-color: #ff513c;
   }
   &:nth-child(4) {
@@ -44,7 +44,7 @@
     .logo {
       &:nth-child(1) {
         color: #ff513c;
-        background-color: #ffffff;
+        background-color: var(--color-white);
       }
       &:nth-child(2) {
         color: #00dd95;

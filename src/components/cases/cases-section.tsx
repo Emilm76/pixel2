@@ -1,11 +1,12 @@
 'use client';
-import { CASES } from '@/app/constants';
+import { CASES, CasesModalData, DEFAULT_MODAL_DATA } from '@/app/constants';
 import { Case } from '@/components/cases/case';
 import { CasesFilter } from '@/components/cases/case-filter';
 import { ButtonArrow } from '@/ui/button/button-arrow';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { ModalCase } from '../modal/modal-case';
 import styles from './cases-section.module.scss';
 
 const ITEMS_PER_PAGE_MAP = {
@@ -51,10 +52,22 @@ export function CasesSection({
   const header = HEADER_MAP[headerVariant];
 
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState<CasesModalData | null>(null);
 
-  const handleLoadMore = () => {
+  function handleLoadMore() {
     setVisibleCount((prev) => prev + itemsPerPage);
-  };
+  }
+
+  function openModal(modalData: CasesModalData) {
+    setModalData(modalData);
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalData(DEFAULT_MODAL_DATA);
+    setIsModalOpen(false);
+  }
 
   const visibleCases = CASES.slice(0, visibleCount);
   const hasMore = visibleCount < CASES.length;
@@ -67,9 +80,10 @@ export function CasesSection({
         {visibleCases.map((caseItem) => (
           <Case
             image={caseItem.image}
-            labels={caseItem.labels}
             name={caseItem.name}
-            key={caseItem.id}
+            labels={caseItem.labels}
+            onClick={() => openModal(caseItem.modal)}
+            key={caseItem.name}
           />
         ))}
       </div>
@@ -81,6 +95,12 @@ export function CasesSection({
           onClick={handleLoadMore}
         />
       )}
+
+      <ModalCase
+        modalData={modalData}
+        isOpen={isModalOpen}
+        closeModalCallback={closeModal}
+      />
     </section>
   );
 }

@@ -1,12 +1,10 @@
 import headerReducer from '@/lib/features/header/header-slice';
-import modalReducer from '@/lib/features/modal/modal-slice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       header: headerReducer,
-      modal: modalReducer,
     },
   });
 };

@@ -49,7 +49,15 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
   }, [pathname, lenis]);
 
   return (
-    <ReactLenis root options={{ duration: 1.5, autoRaf: false }} ref={lenisRef}>
+    <ReactLenis
+      root
+      options={{
+        duration: 1.5,
+        autoRaf: false,
+        prevent: (node) => node.classList.contains('modal'),
+      }}
+      ref={lenisRef}
+    >
       {children}
     </ReactLenis>
   );

@@ -1,5 +1,5 @@
-import hermitageImg from '@/images/cases/hermitage.jpg';
-import moddImg from '@/images/cases/modd.jpg';
+import hermitageImg from '@/images/cases-preview/hermitage.jpg';
+import moddImg from '@/images/cases-preview/modd.jpg';
 import clsx from 'clsx';
 import { CasePreview } from './case-preview';
 import styles from './cases-preview-section.module.scss';

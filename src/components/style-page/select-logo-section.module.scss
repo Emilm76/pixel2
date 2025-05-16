@@ -25,7 +25,7 @@
   border-color: transparent;
   transition: border-color 0.3s ease-out;
   &:hover {
-    border-color: #fff;
+    border-color: var(--color-white);
     .logoContent {
       transform: scale(0.8);
     }

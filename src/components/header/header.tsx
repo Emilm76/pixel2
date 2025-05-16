@@ -15,7 +15,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { ModalButton } from '../modal/modal-button';
+import { Modal } from '../modal/modal';
 import styles from './header.module.scss';
 
 function getAfterNumberSign(str: string) {
@@ -53,6 +53,7 @@ export function Header() {
   const [isBurgerOpen, setIsBurgerOpen] = useState(false);
   const isHeaderHidden = useAppSelector(selectHeaderVisibility);
   const dispatch = useAppDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const lenis = useLenis(handleScroll);
 
   const isConstructorPage = pathname.startsWith('/logo-builder');
@@ -148,9 +149,10 @@ export function Header() {
             </ul>
           </nav>
 
-          <ModalButton className={styles.talkButton}>
-            <ButtonArrow text={talkButtonText} />
-          </ModalButton>
+          <ButtonArrow
+            onClick={() => setIsModalOpen(true)}
+            text={talkButtonText}
+          />
         </div>
       </header>
 
@@ -177,12 +179,14 @@ export function Header() {
               </ul>
             </nav>
 
-            <ModalButton className={styles.talkButton}>
-              <ButtonArrow text={talkButtonText} />
-            </ModalButton>
+            <ButtonArrow
+              onClick={() => setIsModalOpen(true)}
+              text={talkButtonText}
+            />
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </>
   );
 }

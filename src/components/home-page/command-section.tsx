@@ -17,19 +17,19 @@ export function CommandSection() {
         <div className={styles.grid}>
           <div className={styles.workersWrapper}>
             <div className={styles.worker}>
-              <Image src={nastyImg} width={200} height={200} alt="" />
+              <Image src={nastyImg} width={200} alt="" />
             </div>
             <div className={styles.worker}>
-              <Image src={emilImg} width={200} height={200} alt="" />
+              <Image src={emilImg} width={200} alt="" />
             </div>
             <div className={styles.worker}>
-              <Image src={polinaImg} width={200} height={200} alt="" />
+              <Image src={polinaImg} width={200} alt="" />
             </div>
             <div className={styles.worker}>
-              <Image src={aizaImg} width={200} height={200} alt="" />
+              <Image src={aizaImg} width={200} alt="" />
             </div>
             <div className={styles.worker}>
-              <Image src={milaImg} width={200} height={200} alt="" />
+              <Image src={milaImg} width={200} alt="" />
             </div>
             <div className={clsx(styles.worker, styles.workerMore)}>
               <span className="h3">50+</span>
