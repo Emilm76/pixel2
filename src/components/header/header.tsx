@@ -150,6 +150,7 @@ export function Header() {
           </nav>
 
           <ButtonArrow
+            className={styles.talkButton}
             onClick={() => setIsModalOpen(true)}
             text={talkButtonText}
           />
@@ -180,6 +181,7 @@ export function Header() {
             </nav>
 
             <ButtonArrow
+              className={styles.talkButton}
               onClick={() => setIsModalOpen(true)}
               text={talkButtonText}
             />

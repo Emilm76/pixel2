@@ -6,10 +6,12 @@ export function CasePreview({
   image,
   title,
   text,
+  onClick,
 }: {
   image: StaticImageData;
   title: string;
   text: string;
+  onClick: () => void;
 }) {
   return (
     <div className={styles.blok}>
@@ -24,7 +26,11 @@ export function CasePreview({
         <h3 className="h3">{title}</h3>
         <p>{text}</p>
       </div>
-      <ButtonPrimary className={styles.button} text="Смотреть кейс" />
+      <ButtonPrimary
+        onClick={onClick}
+        className={styles.button}
+        text="Смотреть кейс"
+      />
     </div>
   );
 }

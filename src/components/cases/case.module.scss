@@ -32,6 +32,7 @@
     padding-right: var(--container-padding);
     @media (min-width: 768px) {
       padding-right: 20px;
+      border-right-width: 1px;
     }
     @media (min-width: 1300px) {
       padding-right: 30px;
@@ -42,7 +43,6 @@
     padding-left: var(--container-padding);
     @media (min-width: 768px) {
       padding-left: 20px;
-      border-left-width: 1px;
     }
     @media (min-width: 1300px) {
       padding-left: 30px;

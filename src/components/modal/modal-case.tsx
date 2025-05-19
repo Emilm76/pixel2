@@ -1,5 +1,5 @@
 'use client';
-import { CasesModalData } from '@/app/constants';
+import { CaseModalData } from '@/app/constants';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
@@ -15,7 +15,7 @@ export function ModalCase({
 }: {
   isOpen: boolean;
   closeModalCallback: () => void;
-  modalData: CasesModalData | null;
+  modalData: CaseModalData | null;
 }) {
   const lenis = useLenis();
 

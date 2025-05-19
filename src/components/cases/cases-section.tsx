@@ -1,11 +1,17 @@
 'use client';
-import { CASES, CasesModalData, DEFAULT_MODAL_DATA } from '@/app/constants';
+import {
+  CASES,
+  CaseModalData,
+  DEFAULT_MODAL_DATA,
+  Filter,
+} from '@/app/constants';
 import { Case } from '@/components/cases/case';
 import { CasesFilter } from '@/components/cases/case-filter';
 import { ButtonArrow } from '@/ui/button/button-arrow';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { CasesTitle } from '../home-page/cases-title';
 import { ModalCase } from '../modal/modal-case';
 import styles from './cases-section.module.scss';
 
@@ -14,33 +20,10 @@ const ITEMS_PER_PAGE_MAP = {
   '2': 8,
   '3': 4,
 };
-
-const HEADER_MAP = {
-  '1': (
-    <>
-      <h2 className={clsx(styles.title, 'h3 h-pb')}>
-        Каждый проект в нашей компании — это комплекс услуг от А до Я, который
-        включает{' '}
-        <span className="purple">
-          аналитику, проектирование, дизайн, разработку
-        </span>{' '}
-        и вывод продукта на рынок.
-      </h2>
-      <div className={styles.header1}>
-        <CasesFilter />
-        <ButtonPrimary href="/cases" text="Все кейсы" />
-      </div>
-    </>
-  ),
-  '2': <CasesFilter />,
-  '3': (
-    <div className={styles.header3}>
-      <h2 className="h2">
-        Наши <span className="purple">кейсы</span>
-      </h2>
-      <ButtonPrimary href="/cases" text="Все кейсы" />
-    </div>
-  ),
+const SELECTED_FILTER_MAP: { [key: string]: Filter } = {
+  '1': 'web',
+  '2': 'all',
+  '3': 'web',
 };
 
 export function CasesSection({
@@ -49,17 +32,34 @@ export function CasesSection({
   headerVariant?: '1' | '2' | '3';
 }) {
   const itemsPerPage = ITEMS_PER_PAGE_MAP[headerVariant];
-  const header = HEADER_MAP[headerVariant];
 
-  const [visibleCount, setVisibleCount] = useState(itemsPerPage);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState<CasesModalData | null>(null);
+  const [modalData, setModalData] = useState<CaseModalData | null>(null);
+  const [selectedFilter, setSelectedFilter] = useState<Filter>(
+    SELECTED_FILTER_MAP[headerVariant]
+  );
+  const [visibleCount, setVisibleCount] = useState(itemsPerPage);
+  const [visibleCases, setVisibleCases] = useState(
+    CASES.slice(0, visibleCount)
+  );
+
+  useEffect(() => {
+    if (selectedFilter === 'all') {
+      setVisibleCases(CASES.slice(0, visibleCount));
+    } else {
+      setVisibleCases(
+        CASES.filter((item) =>
+          item.categories.find((filter) => filter === selectedFilter)
+        ).slice(0, visibleCount)
+      );
+    }
+  }, [selectedFilter, visibleCount]);
 
   function handleLoadMore() {
     setVisibleCount((prev) => prev + itemsPerPage);
   }
 
-  function openModal(modalData: CasesModalData) {
+  function openModal(modalData: CaseModalData) {
     setModalData(modalData);
     setIsModalOpen(true);
   }
@@ -69,12 +69,51 @@ export function CasesSection({
     setIsModalOpen(false);
   }
 
-  const visibleCases = CASES.slice(0, visibleCount);
-  const hasMore = visibleCount < CASES.length;
+  function handleFilterClick(value: Filter) {
+    setSelectedFilter(value);
+
+    setVisibleCount(itemsPerPage);
+  }
+
+  const hasMore = visibleCount < visibleCases.length;
+
+  const HEADER_MAP = {
+    '1': (
+      <CasesTitle>
+        <div className={styles.header1}>
+          <CasesFilter
+            hideAll={true}
+            selectedFilter={selectedFilter}
+            callback={handleFilterClick}
+          />
+          <ButtonPrimary href="/cases" text="Все кейсы" />
+        </div>
+      </CasesTitle>
+    ),
+    '2': (
+      <div className="container">
+        <CasesFilter
+          hideAll={true}
+          selectedFilter={selectedFilter}
+          callback={handleFilterClick}
+        />
+      </div>
+    ),
+    '3': (
+      <div className={clsx(styles.header3, 'container')}>
+        <h2 className="h2">
+          Наши <span className="purple">кейсы</span>
+        </h2>
+        <ButtonPrimary href="/cases" text="Все кейсы" />
+      </div>
+    ),
+  };
+
+  const header = HEADER_MAP[headerVariant];
 
   return (
     <section className="section-pt">
-      <div className="container">{header}</div>
+      {header}
 
       <div className={clsx(styles.grid, 'container')}>
         {visibleCases.map((caseItem) => (

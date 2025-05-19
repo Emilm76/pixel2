@@ -1,0 +1,47 @@
+.wrapper {
+  position: relative;
+
+  > * {
+    position: relative;
+    z-index: 4;
+  }
+}
+
+.title {
+  @media (min-width: 1300px) {
+    max-width: 880px;
+  }
+  @media (min-width: 1600px) {
+    max-width: 1345px;
+  }
+}
+
+.cube {
+  position: absolute;
+  bottom: -85px;
+  right: -32.8%;
+  z-index: 3;
+  width: 278px;
+  height: 237px;
+  @media (min-width: 768px) {
+    width: 375px;
+    height: 320px;
+    right: -16.92%;
+    bottom: -157px;
+  }
+  @media (min-width: 1024px) {
+    right: -12.69%;
+  }
+  @media (min-width: 1300px) {
+    width: 482px;
+    height: 410px;
+    right: -3.3%;
+    bottom: -167px;
+  }
+  @media (min-width: 1600px) {
+    width: 675px;
+    height: 575px;
+    right: -6%;
+    bottom: -206px;
+  }
+}

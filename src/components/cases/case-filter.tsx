@@ -1,13 +1,32 @@
+'use client';
+import { Filter, FILTERS } from '@/app/constants';
+import clsx from 'clsx';
 import styles from './case-filter.module.scss';
 
-export function CasesFilter() {
+export function CasesFilter({
+  selectedFilter,
+  hideAll = false,
+  callback,
+}: {
+  selectedFilter: Filter;
+  hideAll?: boolean;
+  callback: (value: Filter) => void;
+}) {
   return (
     <ul className={styles.grid} role="list">
-      <li className={styles.checked}>Все</li>
-      <li>Сайты</li>
-      <li>Брендинг</li>
-      <li>Приложения</li>
-      <li>Графический дизайн</li>
+      {FILTERS.map(({ label, value }) => {
+        if (hideAll && value === 'all') return;
+
+        return (
+          <li
+            key={value}
+            className={clsx(value === selectedFilter && styles.checked)}
+            onClick={() => callback(value)}
+          >
+            {label}
+          </li>
+        );
+      })}
     </ul>
   );
 }
