@@ -1,13 +1,17 @@
 'use client';
+import { showHeader as showHeaderAction } from '@/lib/features/header/header-slice';
+import { useAppDispatch } from '@/lib/hooks';
 import gsap from 'gsap';
 import 'lenis/dist/lenis.css';
-import { LenisRef, ReactLenis } from 'lenis/react';
+import { LenisRef, ReactLenis, useLenis } from 'lenis/react';
+import { usePathname } from 'next/navigation';
 import { ReactNode, useEffect, useRef } from 'react';
 
 export function LenisScrollProvider({ children }: { children: ReactNode }) {
   const lenisRef = useRef<LenisRef>(null);
-  // const pathname = usePathname();
-  // const lenis = useLenis();
+  const pathname = usePathname();
+  const lenis = useLenis();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     function update(time: number) {
@@ -19,7 +23,6 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
     return () => gsap.ticker.remove(update);
   }, []);
 
-  /*
   // storing the pathnames when the value changes.
   useEffect(() => {
     storePathValues();
@@ -46,8 +49,9 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
     ) {
       lenis.scrollTo(0, { immediate: true });
     }
+
+    dispatch(showHeaderAction());
   }, [pathname, lenis]);
-  */
 
   // TODO: Показывать хедер при переходе на другую страницу
 
