@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "tsc --noEmit",
+    "lint:types": "next lint"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

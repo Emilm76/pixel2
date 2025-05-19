@@ -3,7 +3,6 @@ import { LenisScrollProvider } from '@/app/providers/lenis-provider';
 import StoreProvider from '@/app/providers/store-provider';
 import { Footer } from '@/components/footer/footer';
 import { Header } from '@/components/header/header';
-import { Modal } from '@/components/modal/modal';
 import clsx from 'clsx';
 import { Sofia_Sans_Extra_Condensed, Unbounded } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -32,7 +31,6 @@ export function BaseLayout({
             <Header />
             {children}
             <Footer />
-            <Modal />
           </LenisScrollProvider>
         </StoreProvider>
       </body>
