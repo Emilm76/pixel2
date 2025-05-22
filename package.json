@@ -22,7 +22,8 @@
     "react-dom": "^19.0.0",
     "react-imask": "^7.6.1",
     "react-redux": "^9.2.0",
-    "react-responsive": "^10.0.1"
+    "react-responsive": "^10.0.1",
+    "three": "^0.176.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

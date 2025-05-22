@@ -20,12 +20,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 24px;
   opacity: 0;
   pointer-events: none;
   transform: scale(0.9);
   transition: opacity 0.3s var(--ease-out-back),
     transform 0.3s var(--ease-out-back);
+
+  @media (min-width: 768px) {
+    padding: 24px;
+  }
 
   &.open {
     opacity: 1;
@@ -45,7 +48,7 @@
 .content {
   position: relative;
   padding: 100px 30px 30px;
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     padding: 120px 80px 80px;
   }
 }

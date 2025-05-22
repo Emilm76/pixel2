@@ -6,6 +6,10 @@
     align-items: center;
   }
 
+  input {
+    flex: 0 0 24px;
+  }
+
   label {
     color: var(--color-grey);
   }
