@@ -21,9 +21,9 @@ const ITEMS_PER_PAGE_MAP = {
   '3': 4,
 };
 const SELECTED_FILTER_MAP: { [key: string]: Filter } = {
-  '1': 'web',
+  '1': 'all', //'web',
   '2': 'all',
-  '3': 'web',
+  '3': 'all', //'web',
 };
 
 export function CasesSection({
@@ -82,7 +82,7 @@ export function CasesSection({
       <CasesTitle>
         <div className={styles.header1}>
           <CasesFilter
-            hideAll={true}
+            // hideAll={true}
             selectedFilter={selectedFilter}
             callback={handleFilterClick}
           />
@@ -93,7 +93,7 @@ export function CasesSection({
     '2': (
       <div className="container">
         <CasesFilter
-          hideAll={true}
+          // hideAll={true}
           selectedFilter={selectedFilter}
           callback={handleFilterClick}
         />
