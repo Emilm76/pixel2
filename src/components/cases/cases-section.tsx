@@ -39,18 +39,16 @@ export function CasesSection({
     SELECTED_FILTER_MAP[headerVariant]
   );
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
-  const [visibleCases, setVisibleCases] = useState(
-    CASES.slice(0, visibleCount)
-  );
+  const [filteredCases, setFilteredCases] = useState(CASES);
 
   useEffect(() => {
     if (selectedFilter === 'all') {
-      setVisibleCases(CASES.slice(0, visibleCount));
+      setFilteredCases(CASES);
     } else {
-      setVisibleCases(
+      setFilteredCases(
         CASES.filter((item) =>
           item.categories.find((filter) => filter === selectedFilter)
-        ).slice(0, visibleCount)
+        )
       );
     }
   }, [selectedFilter, visibleCount]);
@@ -75,7 +73,10 @@ export function CasesSection({
     setVisibleCount(itemsPerPage);
   }
 
-  const hasMore = visibleCount < visibleCases.length;
+  console.log('aaa');
+
+  const visibleCases = filteredCases.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredCases.length;
 
   const HEADER_MAP = {
     '1': (

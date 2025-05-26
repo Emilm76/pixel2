@@ -1,13 +1,17 @@
 import businessPreviewImg from '@/images/cases-preview/business.jpg';
 import comboPreviewImg from '@/images/cases-preview/combo.jpg';
+import druzbaPreviewImg from '@/images/cases-preview/druzhba.jpg';
 import hermitagePreviewImg from '@/images/cases-preview/hermitage.jpg';
 import lStudioPreviewImg from '@/images/cases-preview/l-studio.jpg';
 import norledPreviewImg from '@/images/cases-preview/norled.jpg';
+import pechorinPreviewImg from '@/images/cases-preview/pechorin.jpg';
 import remontStylePreviewImg from '@/images/cases-preview/remont-style.jpg';
 import siyaniePreviewImg from '@/images/cases-preview/siyanie.jpg';
+import smartpoletPreviewImg from '@/images/cases-preview/smartpolet.jpg';
 import tochkaVkusaPreviewImg from '@/images/cases-preview/tochka-vkusa.jpg';
 import tracePreviewImg from '@/images/cases-preview/trace.jpg';
 import usiPreviewImg from '@/images/cases-preview/usi.jpg';
+import visotaPreviewImg from '@/images/cases-preview/visota.jpg';
 
 import businessImg from '@/images/cases/business-start.jpg';
 import comboImg from '@/images/cases/combo.jpg';
@@ -19,6 +23,11 @@ import remontStyleImg from '@/images/cases/remont-style.jpg';
 import siyanieImg from '@/images/cases/siyanie.jpg';
 import tochkaVkusaImg from '@/images/cases/tochka-vkusa.jpg';
 import traceImg from '@/images/cases/trace.jpg';
+// import ugStroysoftImg from '@/images/cases/ug-stroysoft.jpg';
+import druzbaImg from '@/images/cases/druzhba.jpg';
+import pechorinImg from '@/images/cases/pechorin.jpg';
+import smartpoletImg from '@/images/cases/smartpolet.jpg';
+import visotaImg from '@/images/cases/visota.jpg';
 import { StaticImageData } from 'next/image';
 
 export type Filter = 'all' | 'web' | 'branding' | 'app' | 'design';
@@ -85,7 +94,7 @@ export const CASES: Case[] = [
     image: tracePreviewImg,
     name: 'Trace',
     labels: ['Семейная винодельня', 'брендинг'],
-    categories: ['web', 'branding'],
+    categories: ['branding'],
     modal: {
       title: ['Брендинг для семейной винодельни', '«Trace»'],
       description:
@@ -134,15 +143,29 @@ export const CASES: Case[] = [
     },
   },
   {
-    image: siyaniePreviewImg,
-    name: 'Сияние',
-    labels: ['Жилой комплекс', 'многостраничный сайт'],
+    image: pechorinPreviewImg,
+    name: 'Печорин',
+    labels: ['Клубный квартал', 'многостраничный сайт'],
     categories: ['web'],
     modal: {
-      title: ['Сайт для жилого квартала', '«Сияние»'],
-      description: '«Сияние» вызывает эмоции с первого взгляда.',
-      image: siyanieImg,
-      siteHref: 'https://kvartal-siyanie.ru/',
+      title: ['Клубный квартал', '«Печорин»'],
+      description:
+        'Разработали функциональный и удобный в использовании многостраничный сайт, адаптивный под все носители.',
+      image: pechorinImg,
+      siteHref: 'https://kvartal-pechorin.ru/',
+    },
+  },
+  {
+    image: smartpoletPreviewImg,
+    name: 'smartpolét',
+    labels: ['Умный квартал', 'многостраничный сайт'],
+    categories: ['web'],
+    modal: {
+      title: ['Сайт для умного квартала', '«smartpolét»'],
+      description:
+        'Создали качественный, информативный, многостраничный сайт для жилого комплекса с интерактивным поиском квартир.',
+      image: smartpoletImg,
+      siteHref: 'https://poletsmart.ru/',
     },
   },
   {
@@ -156,6 +179,18 @@ export const CASES: Case[] = [
         'логотип представляет собой сборный образ из элементов, символизирующих специализацию компании — сферу бухгалтерских услуг и названия фирмы. Он легко запоминается и прост в использовании на разных носителях.',
       image: businessImg,
       siteHref: null,
+    },
+  },
+  {
+    image: siyaniePreviewImg,
+    name: 'Сияние',
+    labels: ['Жилой комплекс', 'многостраничный сайт'],
+    categories: ['web'],
+    modal: {
+      title: ['Сайт для жилого квартала', '«Сияние»'],
+      description: '«Сияние» вызывает эмоции с первого взгляда.',
+      image: siyanieImg,
+      siteHref: 'https://kvartal-siyanie.ru/',
     },
   },
   {
@@ -182,6 +217,61 @@ export const CASES: Case[] = [
         'Группа компаний «ЮгСтройИнвест» - лидирующий застройщик на Юге России. Строит в Ставрополе, Краснодаре и Ростове-на-Дону. ЮСИ возводит микрорайоны с домами комфорт — и бизнес-класса, с комплексным придомовым благоустройством и развитой инфраструктурой.',
       image: usiImg,
       siteHref: 'https://gk-usi.ru/',
+    },
+  },
+
+  // TODO: не работают ссылки
+  /*{
+    image: usiPreviewImg,
+    name: 'ДомМаркет',
+    labels: ['застройщик', 'многостраничный сайт'],
+    categories: ['web'],
+    modal: {
+      title: ['САЙТ', '«ДомМаркет»'],
+      description:
+        'Разработали лендинг с каталогом домов, возможностью скачать планировку и оставить контакты в форме обратной связи.',
+      image: usiImg,
+      siteHref: 'https://dommarket.info/',
+    },
+  },*/
+  /*{
+    image: usiPreviewImg,
+    name: 'Юг-Стройфорт',
+    labels: ['застройщик', 'многостраничный сайт'],
+    categories: ['web'],
+    modal: {
+      title: ['Сайт для ГК', '«Юг-Стройфорт»'],
+      description:
+        'Группа компаний нового поколения «Юг-Стройфорт» занимается возведением жилой и коммерческой недвижимости по самым современным технологиям.',
+      image: ugStroysoftImg,
+      siteHref: 'https://ug-stroyfort.ru/',
+    },
+  },*/
+
+  {
+    image: visotaPreviewImg,
+    name: 'Высота',
+    labels: ['застройщик', 'многостраничный сайт'],
+    categories: ['web'],
+    modal: {
+      title: ['Сайт жилого комплекса', '«Высота»'],
+      description:
+        'Разработали многостраничный сайт для нового жилого комплекса «Высота» в Ставрополе от надёжного застройщика группы компаний «ЮгСтройИнвест»',
+      image: visotaImg,
+      siteHref: 'https://kvartal-visota.ru/',
+    },
+  },
+  {
+    image: druzbaPreviewImg,
+    name: 'Высота',
+    labels: ['застройщик', 'брендинг'],
+    categories: ['branding'],
+    modal: {
+      title: ['Брендинг для жилого комплекса', '«Дружба»'],
+      description:
+        'При выборе символа мы сделали акцент на единство, дом и корабль имеют намного больше общего, чем может показаться на первый взгляд',
+      image: druzbaImg,
+      siteHref: null,
     },
   },
 ];
