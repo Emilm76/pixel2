@@ -85,7 +85,10 @@ export function ModalCase({
             )}
             {modalData.image && (
               <Image
-                className={clsx(styles.image, isImageLoading && styles.loading)}
+                className={clsx(
+                  styles.image,
+                  !isImageLoading && styles.loading
+                )}
                 src={modalData.image}
                 width={1410}
                 onLoadingComplete={() => setIsImageLoading(false)}
