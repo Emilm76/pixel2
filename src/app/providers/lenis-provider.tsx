@@ -1,5 +1,4 @@
 'use client';
-import { showHeader as showHeaderAction } from '@/lib/features/header/header-slice';
 import { useAppDispatch } from '@/lib/hooks';
 import gsap from 'gsap';
 import 'lenis/dist/lenis.css';
@@ -49,8 +48,6 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
     ) {
       lenis.scrollTo(0, { immediate: true });
     }
-
-    dispatch(showHeaderAction());
   }, [pathname, lenis, dispatch]);
 
   // TODO: Показывать хедер при переходе на другую страницу

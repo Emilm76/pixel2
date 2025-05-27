@@ -91,7 +91,6 @@ export function ModalCase({
                 className={styles.image}
                 src={modalData.image}
                 width={1410}
-                onLoadingComplete={() => setIsImageLoading(false)}
                 onLoad={() => setIsImageLoading(false)}
                 alt=""
               />

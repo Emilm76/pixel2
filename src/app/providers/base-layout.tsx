@@ -1,8 +1,6 @@
 import '@/app/globals.scss';
 import { LenisScrollProvider } from '@/app/providers/lenis-provider';
 import StoreProvider from '@/app/providers/store-provider';
-import { Footer } from '@/components/footer/footer';
-import { Header } from '@/components/header/header';
 import clsx from 'clsx';
 import { Sofia_Sans_Extra_Condensed, Unbounded } from 'next/font/google';
 import { ReactNode } from 'react';
@@ -27,11 +25,7 @@ export function BaseLayout({
     <html lang="ru" className={clsx(unbounded.className, sofiaSans.variable)}>
       <body>
         <StoreProvider>
-          <LenisScrollProvider>
-            <Header />
-            {children}
-            <Footer />
-          </LenisScrollProvider>
+          <LenisScrollProvider>{children}</LenisScrollProvider>
         </StoreProvider>
       </body>
     </html>

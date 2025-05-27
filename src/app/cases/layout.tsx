@@ -1,3 +1,5 @@
+import { Footer } from '@/components/footer/footer';
+import { Header } from '@/components/header/header';
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 
@@ -12,5 +14,11 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  return children;
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
 }

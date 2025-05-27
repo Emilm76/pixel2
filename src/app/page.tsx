@@ -1,4 +1,6 @@
 import { CasesSection } from '@/components/cases/cases-section';
+import { Footer } from '@/components/footer/footer';
+import { Header } from '@/components/header/header';
 import { CasesPreviewSection } from '@/components/home-page/cases-preview-section';
 import { ClientsSection } from '@/components/home-page/clients-section';
 import { CommandSection } from '@/components/home-page/command-section';
@@ -10,16 +12,20 @@ import { TelegramSection } from '@/components/home-page/telegram-section';
 
 export default function Home() {
   return (
-    <main>
-      <MainSection />
-      <CasesPreviewSection />
-      <ClientsSection />
-      <CommandSection />
-      <ProcessSection />
-      <CasesSection />
-      <FormSection />
-      <TelegramSection />
-      <QuestionsSection />
-    </main>
+    <>
+      <Header />
+      <main>
+        <MainSection />
+        <CasesPreviewSection />
+        <ClientsSection />
+        <CommandSection />
+        <ProcessSection />
+        <CasesSection />
+        <FormSection />
+        <TelegramSection />
+        <QuestionsSection />
+      </main>
+      <Footer />
+    </>
   );
 }
