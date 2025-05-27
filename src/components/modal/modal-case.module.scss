@@ -87,7 +87,7 @@
 .image {
   width: 100%;
   height: auto;
-  .loading {
+  &.loading {
     display: none;
   }
 }
@@ -118,6 +118,10 @@
   padding-bottom: 60px;
   @media (min-width: 1600px) {
     padding-bottom: 80px;
+  }
+
+  &.load {
+    display: none;
   }
 }
 

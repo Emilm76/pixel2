@@ -78,17 +78,17 @@ export function ModalCase({
               </div>
             </div>
 
-            {isImageLoading && (
-              <div className={styles.loaderWrapper}>
-                <LoaderIcon className={styles.loader} />
-              </div>
-            )}
+            <div
+              className={clsx(
+                styles.loaderWrapper,
+                !isImageLoading && styles.load
+              )}
+            >
+              <LoaderIcon className={styles.loader} />
+            </div>
             {modalData.image && (
               <Image
-                className={clsx(
-                  styles.image,
-                  !isImageLoading && styles.loading
-                )}
+                className={clsx(styles.image, isImageLoading && styles.loading)}
                 src={modalData.image}
                 width={1410}
                 onLoadingComplete={() => setIsImageLoading(false)}
