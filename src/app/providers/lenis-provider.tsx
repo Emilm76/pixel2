@@ -51,7 +51,7 @@ export function LenisScrollProvider({ children }: { children: ReactNode }) {
     }
 
     dispatch(showHeaderAction());
-  }, [pathname, lenis]);
+  }, [pathname, lenis, dispatch]);
 
   // TODO: Показывать хедер при переходе на другую страницу
 

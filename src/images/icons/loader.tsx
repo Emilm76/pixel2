@@ -1,4 +1,4 @@
-export function SpinnerIcon({ className }: { className?: string }) {
+export function LoaderIcon({ className }: { className?: string }) {
   return (
     <svg
       className={className}

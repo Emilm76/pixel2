@@ -1,4 +1,4 @@
-import { Label } from '@/ui/label/label';
+import { Label } from '@/ui/label';
 import clsx from 'clsx';
 import Link from 'next/link';
 import styles from './footer.module.scss';

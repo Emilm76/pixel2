@@ -2,6 +2,7 @@ import cubeImg from '@/images/icons/cube.svg';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import { CubeMouseMove } from '../cube-mouse-move';
 import styles from './cases-title.module.scss';
 
 export function CasesTitle({ children }: { children: ReactNode }) {
@@ -17,7 +18,9 @@ export function CasesTitle({ children }: { children: ReactNode }) {
       </h2>
       {children}
 
-      <Image className={styles.cube} src={cubeImg} alt="" />
+      <CubeMouseMove className={styles.cube} parallaxSpeed={0.03}>
+        <Image src={cubeImg} alt="" />
+      </CubeMouseMove>
     </div>
   );
 }

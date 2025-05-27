@@ -54,6 +54,9 @@
 
 .content {
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .container {
   padding-top: 80px;
@@ -84,6 +87,9 @@
 .image {
   width: 100%;
   height: auto;
+  .loading {
+    display: none;
+  }
 }
 
 .buttonClose {
@@ -102,4 +108,21 @@
   @media (min-width: 1300px) {
     width: 414px;
   }
+}
+
+.loaderWrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 60px;
+  @media (min-width: 1600px) {
+    padding-bottom: 80px;
+  }
+}
+
+.loader {
+  color: var(--color-purple);
+  width: 48px;
+  height: 48px;
 }

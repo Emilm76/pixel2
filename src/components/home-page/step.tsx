@@ -1,5 +1,5 @@
 'use client';
-import { Label } from '@/ui/label/label';
+import { Label } from '@/ui/label';
 import { ReactNode, useRef, useState } from 'react';
 import styles from './step.module.scss';
 

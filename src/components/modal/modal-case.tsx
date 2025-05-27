@@ -1,10 +1,11 @@
 'use client';
 import { CaseModalData } from '@/app/constants';
+import { LoaderIcon } from '@/images/icons/loader';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
 import { useLenis } from 'lenis/react';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ButtonClose } from '../../ui/button/button-close';
 import styles from './modal-case.module.scss';
 
@@ -18,6 +19,13 @@ export function ModalCase({
   modalData: CaseModalData | null;
 }) {
   const lenis = useLenis();
+  const [isImageLoading, setIsImageLoading] = useState(true);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsImageLoading(true);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     if (!lenis) return;
@@ -70,11 +78,18 @@ export function ModalCase({
               </div>
             </div>
 
+            {isImageLoading && (
+              <div className={styles.loaderWrapper}>
+                <LoaderIcon className={styles.loader} />
+              </div>
+            )}
             {modalData.image && (
               <Image
-                className={styles.image}
+                className={clsx(styles.image, isImageLoading && styles.loading)}
                 src={modalData.image}
                 width={1410}
+                onLoadingComplete={() => setIsImageLoading(false)}
+                onLoad={() => setIsImageLoading(false)}
                 alt=""
               />
             )}

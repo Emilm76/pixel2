@@ -1,4 +1,4 @@
-import { Label } from '@/ui/label/label';
+import { Label } from '@/ui/label';
 import Image, { StaticImageData } from 'next/image';
 import styles from './case.module.scss';
 

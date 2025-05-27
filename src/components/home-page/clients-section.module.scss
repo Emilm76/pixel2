@@ -111,6 +111,11 @@
   @media (min-width: 1600px) {
     right: 29.5%;
   }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .cube2 {
@@ -135,5 +140,10 @@
   @media (min-width: 1600px) {
     top: -70px;
     right: 13%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 }

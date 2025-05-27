@@ -1,4 +1,7 @@
+import cubeImg from '@/images/icons/cube.svg';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { CubeMouseMove } from '../cube-mouse-move';
 import { LogosSlider } from '../logos/logos-slider';
 import styles from './main-section.module.scss';
 
@@ -22,6 +25,15 @@ export function MainSection() {
 
       <div className={clsx(styles.logosContainer, 'container')}>
         <LogosSlider />
+      </div>
+
+      <div className={clsx(styles.cubesContainer, 'container')}>
+        <CubeMouseMove className={styles.cube1} parallaxSpeed={0.02}>
+          <Image src={cubeImg} alt="" />
+        </CubeMouseMove>
+        <CubeMouseMove className={styles.cube2} parallaxSpeed={0.04}>
+          <Image src={cubeImg} alt="" />
+        </CubeMouseMove>
       </div>
     </section>
   );

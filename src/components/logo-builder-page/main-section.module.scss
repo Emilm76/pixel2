@@ -10,19 +10,20 @@
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 20px;
-  max-height: 600px;
+  max-height: 820px;
 
   @media (min-width: 768px) {
     --section-pt: 100px;
-    --section-min-h: 1000px;
-    max-height: none;
+    // --section-min-h: 1000px;
   }
   @media (min-width: 1024px) {
     --section-pt: 80px;
     --section-min-h: 768px;
+    max-height: 800px;
   }
   @media (min-width: 1300px) {
     --section-pt: 32px;
+    max-height: 920px;
     @media (min-height: 800px) {
       --section-pt: 64px;
     }
@@ -116,6 +117,82 @@
 
 .logosContainer {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   padding: 0 !important;
+}
+
+.cubesContainer {
+  position: relative;
+  height: 0;
+}
+
+.cube1 {
+  position: absolute;
+  bottom: 220px;
+  left: -32px;
+  z-index: 3;
+  width: 88px;
+  height: 76px;
+  @media (min-width: 768px) {
+    left: 56px;
+    bottom: 210px;
+  }
+  @media (min-width: 1024px) {
+    width: 128px;
+    height: 110px;
+    left: 86px;
+    bottom: 273px;
+  }
+  @media (min-width: 1300px) {
+    left: 126px;
+    bottom: 343px;
+  }
+  @media (min-width: 1600px) {
+    width: 154px;
+    height: 132px;
+    left: 236px;
+    bottom: 383px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cube2 {
+  position: absolute;
+  bottom: 57px;
+  right: -33px;
+  z-index: 3;
+  width: 268px;
+  height: 229px;
+  transform: scaleX(-1);
+  @media (min-width: 768px) {
+    width: 335px;
+    height: 286px;
+    bottom: 16px;
+    right: -78px;
+  }
+  @media (min-width: 1024px) {
+    width: 442px;
+    height: 360px;
+    right: -142px;
+    bottom: 96px;
+  }
+  @media (min-width: 1300px) {
+    right: -72px;
+    bottom: 156px;
+  }
+  @media (min-width: 1600px) {
+    width: 550px;
+    height: 470px;
+    right: 72px;
+    bottom: 102px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }

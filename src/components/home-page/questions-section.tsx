@@ -1,10 +1,13 @@
 'use client';
-import { Label } from '@/ui/label/label';
+import cubeImg from '@/images/icons/cube.svg';
+import { Label } from '@/ui/label';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 import { useRef } from 'react';
+import { CubeMouseMove } from '../cube-mouse-move';
 import styles from './questions-section.module.scss';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -18,6 +21,7 @@ export function QuestionsSection() {
       const blocksContent: HTMLElement[] = gsap.utils.toArray(
         '.animatedBlock .animatedContent'
       );
+
       blocks.forEach((block, index) => {
         gsap.to(blocksContent[index], {
           y: 0,
@@ -26,7 +30,7 @@ export function QuestionsSection() {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: block,
-            start: 'bottom bottom-=5%',
+            start: 'bottom-=20% bottom-=5%',
             // markers: true,
             // onEnter, onLeave, onEnterBack, onLeaveBack
             toggleActions: `play play play reverse`,
@@ -39,8 +43,11 @@ export function QuestionsSection() {
 
   return (
     <section className="section-pt">
-      <div className="container">
+      <div className={clsx(styles.titleContainer, 'container')}>
         <h2 className={clsx(styles.title, 'h2 h-pb')}>Частые вопросы</h2>
+        <CubeMouseMove className={styles.cube} parallaxSpeed={0.035}>
+          <Image src={cubeImg} alt="" />
+        </CubeMouseMove>
       </div>
 
       <div className={clsx(styles.questionsContainer, 'container')} ref={main}>

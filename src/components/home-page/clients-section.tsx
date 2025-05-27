@@ -2,6 +2,7 @@ import cubeImg from '@/images/icons/cube.svg';
 import { VideoLazyLoad } from '@/ui/video/video-lazy-load';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { CubeMouseMove } from '../cube-mouse-move';
 import styles from './clients-section.module.scss';
 
 export function ClientsSection() {
@@ -41,7 +42,9 @@ export function ClientsSection() {
               наших клиентов — постоянные партнёры, что подтверждает доверие
               к нашей команде и качество наших услуг.
             </p>
-            <Image className={styles.cube1} src={cubeImg} alt="" />
+            <CubeMouseMove className={styles.cube1} parallaxSpeed={0.02}>
+              <Image src={cubeImg} alt="" />
+            </CubeMouseMove>
           </div>
           <div className={styles.feature}>
             <p className="p1">
@@ -60,7 +63,9 @@ export function ClientsSection() {
               целевых лидов и помогли закрыть сделки на сумму 10 миллиардов
               рублей.
             </p>
-            <Image className={styles.cube2} src={cubeImg} alt="" />
+            <CubeMouseMove className={styles.cube2} parallaxSpeed={0.03}>
+              <Image src={cubeImg} alt="" />
+            </CubeMouseMove>
           </div>
         </div>
       </div>

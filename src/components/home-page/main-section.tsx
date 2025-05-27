@@ -1,6 +1,6 @@
 'use client';
 import { ButtonPrimary } from '@/ui/button/button-primary';
-import { Label } from '@/ui/label/label';
+import { Label } from '@/ui/label';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { Modal } from '../modal/modal';

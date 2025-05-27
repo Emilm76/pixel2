@@ -73,8 +73,6 @@ export function CasesSection({
     setVisibleCount(itemsPerPage);
   }
 
-  console.log('aaa');
-
   const visibleCases = filteredCases.slice(0, visibleCount);
   const hasMore = visibleCount < filteredCases.length;
 
