@@ -100,11 +100,7 @@ function Reel({
         isPlay={isPlay}
         className={styles.video}
         src={videoSrc}
-        loadCallback={() => {
-          console.log('load');
-
-          setIsLoad(true);
-        }}
+        loadCallback={() => setIsLoad(true)}
         videoProps={{
           ...videoProps,
           width: '435',
