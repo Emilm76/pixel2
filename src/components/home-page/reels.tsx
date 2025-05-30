@@ -71,10 +71,11 @@ function Reel({
   videoProps?: VideoHTMLAttributes<HTMLVideoElement>;
 }) {
   const [isPlay, setIsPlay] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
 
   return (
     <div
-      className={styles.card}
+      className={clsx(styles.card, isLoad && styles.load)}
       onMouseEnter={() => setIsPlay(true)}
       onMouseLeave={() => setIsPlay(false)}
     >
@@ -99,6 +100,11 @@ function Reel({
         isPlay={isPlay}
         className={styles.video}
         src={videoSrc}
+        loadCallback={() => {
+          console.log('load');
+
+          setIsLoad(true);
+        }}
         videoProps={{
           ...videoProps,
           width: '435',

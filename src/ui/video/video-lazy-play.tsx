@@ -7,11 +7,13 @@ export function VideoLazyPlay({
   src,
   className,
   videoProps = {},
+  loadCallback,
 }: {
   isPlay: boolean;
   src: VideoSrc;
   className?: string;
   videoProps?: VideoHTMLAttributes<HTMLVideoElement>;
+  loadCallback?: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const isLoadedRef = useRef(false);
@@ -28,6 +30,12 @@ export function VideoLazyPlay({
       });
 
       videoEl.load();
+      videoEl.addEventListener('loadeddata', () => {
+        if (videoEl.readyState >= 3 && loadCallback) {
+          loadCallback();
+        }
+      });
+
       isLoadedRef.current = true;
     }
 
@@ -52,6 +60,7 @@ export function VideoLazyPlay({
       autoPlay
       muted
       loop
+      onLoad={() => console.log('load')}
     >
       {src.mobileWebm && (
         <source
