@@ -50,7 +50,7 @@ export function VideoLazyPlay({
     } else {
       videoEl.pause();
     }
-  }, [isPlay]);
+  }, [isPlay, loadCallback]);
 
   return (
     <video
