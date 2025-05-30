@@ -27,13 +27,15 @@ export function MainSection() {
         <LogosSlider />
       </div>
 
-      <div className={clsx(styles.cubesContainer, 'container')}>
-        <CubeMouseMove className={styles.cube1} parallaxSpeed={0.02}>
-          <Image src={cubeImg} alt="" />
-        </CubeMouseMove>
-        <CubeMouseMove className={styles.cube2} parallaxSpeed={0.04}>
-          <Image src={cubeImg} alt="" />
-        </CubeMouseMove>
+      <div className={styles.cubesWrapper}>
+        <div className={clsx(styles.cubesContainer, 'container')}>
+          <CubeMouseMove className={styles.cube1} parallaxSpeed={0.02}>
+            <Image src={cubeImg} alt="" />
+          </CubeMouseMove>
+          <CubeMouseMove className={styles.cube2} parallaxSpeed={0.04}>
+            <Image src={cubeImg} alt="" />
+          </CubeMouseMove>
+        </div>
       </div>
     </section>
   );

@@ -31,6 +31,7 @@
   @media (min-width: 1600px) {
     --section-pt: 50px;
     --section-min-h: 850px;
+    max-height: 1100px;
     @media (min-height: 1000px) {
       --section-pt: 100px;
       --section-min-h: 1080px;
@@ -121,9 +122,15 @@
   padding: 0 !important;
 }
 
+.cubesWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+}
 .cubesContainer {
   position: relative;
-  height: 0;
 }
 
 .cube1 {
