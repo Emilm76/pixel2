@@ -80,13 +80,7 @@ function Reel({
       onMouseLeave={() => setIsPlay(false)}
     >
       <div className={styles.preview}>
-        <Image
-          className={styles.previewImage}
-          src={previewImage}
-          width={435}
-          height={700}
-          alt=""
-        />
+        <Image className={styles.previewImage} src={previewImage} alt="" />
         <Image
           className={styles.playImage}
           src={playImg}

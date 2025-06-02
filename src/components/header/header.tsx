@@ -8,6 +8,7 @@ import {
 } from '@/lib/features/header/header-slice';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { ButtonArrow } from '@/ui/button/button-arrow';
+import { TransitionLink } from '@/ui/transition-link';
 import clsx from 'clsx';
 import Lenis from 'lenis';
 import { useLenis } from 'lenis/react';
@@ -133,9 +134,9 @@ export function Header() {
             <BurgerIcon className={styles.burgerIcon} />
           </button>
 
-          <Link href="/">
+          <TransitionLink href="/">
             <Image src={logoImg} width={176} height={30} alt="Логотип Pixel" />
-          </Link>
+          </TransitionLink>
 
           <nav className={styles.nav}>
             <ul role="list">
@@ -202,9 +203,9 @@ function HeaderLink({
 }) {
   if (link.href) {
     return (
-      <Link className="button-text" href={link.href}>
+      <TransitionLink className="button-text" href={link.href}>
         <span onClick={() => callback(link)}>{link.name}</span>
-      </Link>
+      </TransitionLink>
     );
   }
 

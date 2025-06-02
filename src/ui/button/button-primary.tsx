@@ -1,7 +1,7 @@
 import { ArrowRight2Icon } from '@/images/icons/arrow-right-2';
 import clsx from 'clsx';
-import Link from 'next/link';
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
+import { TransitionLink } from '../transition-link';
 import styles from './button-primary.module.scss';
 
 export type ButtonPrimaryProps = { text: string } & ButtonPrimaryWrapperProps;
@@ -47,13 +47,13 @@ function ButtonPrimaryWrapper({
 }: ButtonPrimaryWrapperProps) {
   if (props.href) {
     return (
-      <Link
+      <TransitionLink
         href={props.href}
         className={className}
         {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         {children}
-      </Link>
+      </TransitionLink>
     );
   }
 

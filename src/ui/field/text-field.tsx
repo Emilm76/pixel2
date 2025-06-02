@@ -1,6 +1,6 @@
 'use client';
 import clsx from 'clsx';
-import { InputHTMLAttributes, useRef, useState } from 'react';
+import { ChangeEvent, InputHTMLAttributes, useRef, useState } from 'react';
 import styles from './text-field.module.scss';
 
 export function TextField({
@@ -15,7 +15,7 @@ export function TextField({
   const inputRef = useRef<HTMLInputElement>(null);
   const [filled, setFilled] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFilled(e.target.value.length > 0);
   };
 
