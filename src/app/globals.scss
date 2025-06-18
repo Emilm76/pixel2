@@ -87,11 +87,11 @@ ul[role='list'] {
 
 ::selection {
   color: var(--color-white);
-  background: rgba(158, 105, 204, 0.9);
+  background-color: var(--color-purple);
 }
 ::-moz-selection {
   color: var(--color-white);
-  background: rgba(158, 105, 204, 0.9);
+  background-color: var(--color-purple);
 }
 
 body {
@@ -208,6 +208,26 @@ main {
   margin: 0 auto;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
+}
+
+html,
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-grey);
+    border-radius: 2px;
+  }
+  // для firefox
+  scrollbar-color: var(--color-grey) transparent;
+  scrollbar-width: thin;
 }
 
 .section-pt {
@@ -463,7 +483,6 @@ main {
   float: left;
   display: block;
   margin: 0;
-  text-transform: none;
 
   font-family: inherit;
   font-size: 13px;

@@ -46,7 +46,7 @@ const secondLinks = [
   { name: 'О студии', toSection: '/#about' },
   { name: 'Что делаем?', toSection: '/#what-do' },
   { name: 'Кейсы', href: '/cases' },
-  { name: 'Генератор логотипов', href: '/logo-builder' },
+  // { name: 'Генератор логотипов', href: '/logo-builder' },
 ];
 
 export function Header() {

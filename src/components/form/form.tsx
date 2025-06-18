@@ -1,38 +1,82 @@
-'use-client';
+'use client';
+
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import { Checkbox } from '@/ui/checkbox/checkbox';
 import { TelField } from '@/ui/field/tel-field';
 import { TextField } from '@/ui/field/text-field';
+import clsx from 'clsx';
+import { FormEvent, useState } from 'react';
 import styles from './form.module.scss';
 
+const status = {
+  wait: 'Заявка отправляется...',
+  susses: 'Заявка успешно отправлена. Ожидайте ответа',
+  error: 'Произошла ошибка сети при отправке заявки. Попробуйте позже',
+  notComplete: 'Пожалуйста, заполните все поля полностью',
+};
+
 export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
-  /*function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    // Prevent the browser from reloading the page
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Read the form data
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string | null;
+    const tel = formData.get('tel') as string | null;
 
-    // You can pass formData as a fetch body directly:
-    fetch('/some-api', { method: form.method, body: formData });
+    if (!name && (!tel || tel.length < 18)) {
+      setMessage(status.notComplete);
+      return;
+    }
 
-    // Or you can work with it as a plain object:
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
-  }*/
+    setIsLoading(true);
+    setMessage(status.wait);
+
+    const message = `<b>Новая заявка</b>\n${name ? `Имя: ${name}\n` : ''}${
+      tel ? `Телефон: <b>${tel}</b>` : ''
+    }`;
+
+    // https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&parse_mode=html&text=
+    // https://api.telegram.org/bot8016171501:AAG-FkOhqrEwith7MhAidsXRSgXnCPbd9jI/sendMessage
+    try {
+      const response = await fetch(
+        `https://api.telegram.org/bot8016171501:AAG-FkOhqrEwith7MhAidsXRSgXnCPbd9jI/sendMessage?parse_mode=html`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            chat_id: '-4594991068',
+            text: message,
+          }),
+        }
+      );
+
+      setIsLoading(false);
+
+      if (response.ok) {
+        setMessage(status.susses);
+      } else {
+        console.error(response.statusText);
+        setMessage(status.error);
+      }
+    } catch (error) {
+      console.error(error);
+      setMessage(status.error);
+    }
+  }
 
   return (
-    <form
-      method="post"
-      // onSubmit={handleSubmit}
-    >
+    <form method="POST" onSubmit={handleSubmit}>
       {variant === 'md' && (
         <TextField
           className={styles.input}
           inputProps={{
             type: 'text',
-            name: 'user-name',
+            name: 'name',
             placeholder: 'Ваше имя',
             autoComplete: 'off',
             required: true,
@@ -42,15 +86,32 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
       <TelField
         className={styles.input}
         inputProps={{
-          type: 'text',
-          name: 'user-tel',
+          type: 'tel',
+          name: 'tel',
           placeholder: 'Телефон',
           autoComplete: 'off',
           required: true,
         }}
       />
 
-      <ButtonPrimary className={styles.button} type="submit" text="Отправить" />
+      <ButtonPrimary
+        className={styles.button}
+        type="submit"
+        text="Отправить"
+        disabled={isLoading}
+      />
+
+      <p
+        className={clsx(
+          styles.message,
+          message === status.wait && styles.wait,
+          message === status.susses && styles.susses,
+          message === status.error && styles.error,
+          'info'
+        )}
+      >
+        {message}
+      </p>
 
       <Checkbox
         className={styles.checkbox}

@@ -12,3 +12,16 @@
 .checkbox {
   margin-top: 24px;
 }
+
+.message {
+  margin-top: 16px;
+  color: var(--color-purple);
+
+  &.wait {
+  }
+  &.susses {
+  }
+  &.error {
+    color: oklch(63.7% 0.237 25.331);
+  }
+}

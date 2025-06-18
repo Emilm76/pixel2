@@ -34,8 +34,6 @@ export function SelectLogoSection() {
   const [selectedLogos, setSelectedLogos] = useState<string[]>([]);
 
   const handleClick = (logo: string) => {
-    console.log('click');
-
     setSelectedLogos((prev) => {
       const isIncludes = prev.includes(logo);
       return isIncludes ? prev.filter((l) => l !== logo) : [...prev, logo];

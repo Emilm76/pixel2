@@ -26,8 +26,6 @@ export function TelField({
   const [filled, setFilled] = useState(false);
 
   const handleChange = (value: string) => {
-    console.log(value);
-
     setFilled(value.length > 0);
   };
 
