@@ -47,7 +47,7 @@ export function CasesPreviewSection() {
             image={moddImg}
             title="CONTEXT"
             text="Успешный кейс по работе с группой компаний «ЮгСтройИнвест», сертифицированный и подтверждённый Яндексом"
-            onClick={() => openModal(HERMITAGE_CASE_MODAL)}
+            href="https://modd.pro"
           />
         </div>
       </section>
