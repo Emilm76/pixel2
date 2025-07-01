@@ -38,7 +38,7 @@ export function ClientsSection() {
             <h3 className="h2">
               80<span className="purple">%</span>
             </h3>
-            <p className="p1">
+            <p className="p1 grey-light">
               наших клиентов — постоянные партнёры, что подтверждает доверие
               к нашей команде и качество наших услуг.
             </p>
@@ -47,19 +47,21 @@ export function ClientsSection() {
             </CubeMouseMove>
           </div>
           <div className={styles.feature}>
-            <p className="p1">
+            <p className="p1 grey-light">
               Мы знаем, как работать на уровне топовых игроков: среди наших
               постоянных клиентов —
             </p>
             <h3 className="h2">
               <span className="purple">ТОП</span>-10
             </h3>
-            <p className="p1">застройщиков России, ГК ЮгСтройИнвест.</p>
+            <p className="p1 grey-light">
+              застройщиков России, ГК ЮгСтройИнвест.
+            </p>
           </div>
           <div className={styles.feature}>
-            <p className="p1">В 2024 году мы привлекли более</p>
+            <p className="p1 grey-light">В 2024 году мы привлекли более</p>
             <h3 className="h2">50 000</h3>
-            <p className="p1">
+            <p className="p1 grey-light">
               целевых лидов и помогли закрыть сделки на сумму 10 миллиардов
               рублей.
             </p>

@@ -11,8 +11,9 @@
     align-items: center;
     gap: 20px;
   }
-  @media (min-width: 1600px) {
-    grid-template-columns: 56.44% minmax(auto, 587px);
+  @media (min-width: 1750px) {
+    //grid-template-columns: 56.44% minmax(auto, 750px);
+    grid-template-columns: auto minmax(auto, 750px);
   }
 }
 
@@ -58,7 +59,7 @@
     width: 159px;
     height: 159px;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     width: 200px;
     height: 200px;
   }
@@ -68,7 +69,7 @@
     @media (min-width: 768px) {
       margin-left: -56px;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: 1750px) {
       margin-left: -64px;
     }
   }

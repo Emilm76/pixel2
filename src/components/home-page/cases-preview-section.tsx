@@ -30,7 +30,7 @@ export function CasesPreviewSection() {
     <>
       <section className="section-pt">
         <div className="container">
-          <h2 className="h2 h-pb">
+          <h2 className="h2 h-pb grey-light">
             Подтверждаем результативность цифрами и 
             <span className="purple">успешными кейсами</span>
           </h2>

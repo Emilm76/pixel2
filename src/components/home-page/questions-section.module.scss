@@ -31,7 +31,7 @@
     top: -38px;
     left: 114px;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     width: 547px;
     height: 438px;
     top: -31px;
@@ -78,6 +78,7 @@
 }
 
 .blok {
+  color: var(--color-grey-light);
 }
 
 .animatedContent {
@@ -97,7 +98,7 @@
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     grid-template-columns: 60.5% 32.6%;
   }
 }

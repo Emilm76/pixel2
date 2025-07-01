@@ -37,7 +37,7 @@
     display: grid;
     grid-template-columns: 55.3% 44.7%;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     grid-template-columns: 50.6% 49.4%;
   }
 }
@@ -58,7 +58,7 @@
     @media (min-width: 1300px) {
       max-width: 480px;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: 1750px) {
       max-width: 740px;
     }
   }
@@ -68,7 +68,7 @@
     @media (min-width: 1300px) {
       margin-top: 48px;
     }
-    @media (min-width: 1600px) {
+    @media (min-width: 1750px) {
       margin-top: 64px;
     }
   }
@@ -90,7 +90,7 @@
   @media (min-width: 1300px) {
     padding: 80px 70px 80px 0;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     padding: 80px 20px 80px 0;
   }
 }

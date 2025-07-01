@@ -14,17 +14,13 @@ export function CasePreview({
   onClick: () => void;
 }) {
   return (
-    <div className={styles.blok}>
+    <div className={styles.blok} onClick={onClick}>
       <div>
         <Image className={styles.image} src={image} alt={title} />
         <h3 className="h3">{title}</h3>
         <p>{text}</p>
       </div>
-      <ButtonPrimary
-        onClick={onClick}
-        className={styles.button}
-        text="Смотреть кейс"
-      />
+      <ButtonPrimary className={styles.button} text="Смотреть кейс" />
     </div>
   );
 }

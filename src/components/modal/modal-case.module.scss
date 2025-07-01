@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 150;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s var(--ease-out-back);
@@ -65,7 +65,7 @@
     padding-top: 100px;
     padding-bottom: 80px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: 49.3% 39.3%;
     justify-content: space-between;
@@ -78,7 +78,7 @@
   justify-content: center;
   p {
     margin-top: 16px;
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       margin-top: 0;
     }
   }
@@ -116,7 +116,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 60px;
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     padding-bottom: 80px;
   }
 

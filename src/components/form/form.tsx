@@ -38,8 +38,6 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
       tel ? `Телефон: <b>${tel}</b>` : ''
     }`;
 
-    // https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatId&parse_mode=html&text=
-    // https://api.telegram.org/bot8016171501:AAG-FkOhqrEwith7MhAidsXRSgXnCPbd9jI/sendMessage
     try {
       const response = await fetch(
         `https://api.telegram.org/bot8016171501:AAG-FkOhqrEwith7MhAidsXRSgXnCPbd9jI/sendMessage?parse_mode=html`,

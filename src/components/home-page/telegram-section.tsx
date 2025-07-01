@@ -15,6 +15,7 @@ export function TelegramSection() {
             </h3>
           </div>
           <ButtonPrimary
+            className={styles.button}
             href="https://t.me/pixel2studio"
             target="_blank"
             text="Перейти в ТГ"

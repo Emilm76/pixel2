@@ -119,6 +119,33 @@ export function Header() {
     ? 'Оставить заявку'
     : 'Обсудим проект';
 
+  //   useEffect(() => {
+  //     linksList.forEach((link) => {
+  //       if (link.href) {
+  //       }
+
+  //       if (link.toSection) {
+  // const selector = link.toSection.startsWith('/') ? link.toSection.slice(1) : link.toSection;
+  //         const block = document.querySelector(selector);
+
+  //         const observer = new IntersectionObserver(
+  //           ([entry]) => {
+  //             if (entry.isIntersecting) {
+  //             } else {
+  //             }
+  //           },
+  //           { threshold: 0.6 }
+  //         );
+
+  //         if (block) observer.observe(block);
+  //       }
+  //     });
+
+  //     // return () => {
+  //     //   if (block) observer.unobserve(block);
+  //     // };
+  //   }, [linksList]);
+
   return (
     <>
       <header
@@ -201,9 +228,14 @@ function HeaderLink({
   link: HeaderLink;
   callback: (link: HeaderLink) => void;
 }) {
+  const pathname = usePathname();
+
   if (link.href) {
     return (
-      <TransitionLink className="button-text" href={link.href}>
+      <TransitionLink
+        className={clsx('button-text', pathname === link.href && 'active')}
+        href={link.href}
+      >
         <span onClick={() => callback(link)}>{link.name}</span>
       </TransitionLink>
     );

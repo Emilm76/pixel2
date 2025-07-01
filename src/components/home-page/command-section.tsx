@@ -18,7 +18,7 @@ export function CommandSection() {
   return (
     <section className="section-pt">
       <div className="container">
-        <h2 className="h2 h-pb">
+        <h2 className="h2 h-pb grey-light">
           Персональные <span className="purple">команды</span>
         </h2>
         <div className={styles.grid}>
@@ -97,7 +97,7 @@ export function CommandSection() {
               <span className="h3">50+</span>
             </div>
           </div>
-          <p>
+          <p className="grey-light">
             это означает, что для вашего проекта будет сформирована команда
             специалистов, полностью сосредоточенная на только ваших задачах.
           </p>

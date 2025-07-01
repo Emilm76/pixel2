@@ -1,6 +1,7 @@
 .label {
   position: relative;
   background-color: var(--color-dark);
+  color: var(--color-white);
 
   &::before,
   &::after,
@@ -49,7 +50,7 @@
   @media (min-width: 768px) {
     padding: 13px 24px;
   }
-  @media (min-width: 1600px) {
+  @media (min-width: 1750px) {
     padding: 12px 24px;
   }
 }

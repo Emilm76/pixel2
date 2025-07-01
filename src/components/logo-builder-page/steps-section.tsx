@@ -14,7 +14,7 @@ export function StepsSection() {
 
       <div className={clsx(styles.stepsContainer, 'container')}>
         <div className={styles.step}>
-          <h3 className="subtitle li">Быстрый старт</h3>
+          <h3 className="subtitle li white">Быстрый старт</h3>
           <p>
             Вы предоставляете небольшое описание в свободной форме о бизнесе
             или продукте, а наш конструктор мгновенно анализирует текст
@@ -22,7 +22,7 @@ export function StepsSection() {
           </p>
         </div>
         <div className={styles.step}>
-          <h3 className="subtitle li">Мгновенный результат</h3>
+          <h3 className="subtitle li white">Мгновенный результат</h3>
           <p>
             Визуализация на различных носителях даёт возможность сразу увидеть,
             как айдентика будет выглядеть в действительности, и подобрать
@@ -30,7 +30,7 @@ export function StepsSection() {
           </p>
         </div>
         <div className={styles.step}>
-          <h3 className="subtitle li">Защита от повторов</h3>
+          <h3 className="subtitle li white">Защита от повторов</h3>
           <p>
             Создаваемые решения сопоставляются с обширной графической базой
             и регулярно проходят проверку на уникальность. Материалы,

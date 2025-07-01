@@ -4,7 +4,7 @@ import { Step } from './step';
 
 export function ProcessSection() {
   return (
-    <section id="what-do" className="section-pt">
+    <section id="what-do" className="section-pt grey-light">
       <div className={clsx(styles.container, 'container')}>
         <div className={clsx(styles.subtitle, 'subtitle')}>
           Улучшаем показатели продаж до 

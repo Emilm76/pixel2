@@ -104,7 +104,7 @@ function Question({
           <Label variant="number">{id}</Label>
           <h3 className="h3">{title}</h3>
         </div>
-        <p className={styles.header}>{text}</p>
+        <p>{text}</p>
       </div>
     </div>
   );

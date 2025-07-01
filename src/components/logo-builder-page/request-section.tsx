@@ -11,7 +11,7 @@ export function RequestSection() {
         </h2>
         <div className={styles.grid}>
           <div>
-            <div className="subtitle">Персонализированные решения</div>
+            <div className="subtitle white">Персонализированные решения</div>
             <p>
               Учитываем вашу отрасль, целевую аудиторию и концепцию бизнеса,
               что позволяет создать логотип, который действительно отражает вашу

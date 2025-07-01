@@ -61,7 +61,7 @@ export function ModalCase({
               onClick={closeModalCallback}
             />
             <div className={clsx(styles.container, 'container')}>
-              <h3 className={clsx(styles.title, 'h3')}>
+              <h3 className={clsx(styles.title, 'h3 dark')}>
                 {modalData.title[0]}{' '}
                 <span className="purple">{modalData.title[1]}</span>
               </h3>
