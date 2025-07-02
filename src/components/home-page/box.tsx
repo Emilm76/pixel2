@@ -235,13 +235,13 @@ export function BoxAnimation() {
       mm.add('(min-width: 1024px) and (max-width: 1299px)', () => {
         applyAnimations(MEDIA_QUERY_CONFIGS.tablet2);
       });
-      mm.add('(min-width: 1300px) and (max-width: 1749px)', () => {
+      mm.add('(min-width: 1300px) and (max-width: 1599px)', () => {
         applyAnimations(MEDIA_QUERY_CONFIGS.tablet3);
       });
-      mm.add('(min-width: 1750px) and (min-height: 1000px)', () =>
+      mm.add('(min-width: 1600px) and (min-height: 1000px)', () =>
         applyAnimations(MEDIA_QUERY_CONFIGS.desktop)
       );
-      mm.add('(min-width: 1750px) and (max-height: 999px)', () =>
+      mm.add('(min-width: 1600px) and (max-height: 999px)', () =>
         applyAnimations(MEDIA_QUERY_CONFIGS.desktopSmall)
       );
     },

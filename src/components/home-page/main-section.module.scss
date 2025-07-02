@@ -4,7 +4,7 @@
 
   position: relative;
   min-height: var(--section-min-h);
-  max-height: 900px;
+  max-height: 1000px;
   height: 100vh;
   padding-top: var(--header-height);
 
@@ -16,7 +16,7 @@
   @media (min-width: 1024px) {
     --section-pt: 150px;
     --section-min-h: 768px;
-    max-height: 800px;
+    // max-height: 800px;
   }
   @media (min-width: 1300px) {
     --section-pt: 120px;
@@ -74,6 +74,13 @@
 .textBlock {
   padding-top: var(--section-pt);
   text-align: center;
+  @media (min-width: 1300px) {
+    padding-top: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .title {
