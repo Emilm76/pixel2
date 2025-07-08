@@ -1,5 +1,4 @@
 'use client';
-import { useAppSelector } from '@/lib/hooks';
 import { ButtonClose } from '@/ui/button/button-close';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
@@ -20,7 +19,7 @@ export function ModalLogo({
   svg: ReactNode | null;
   text: string;
 }) {
-  const companyForm = useAppSelector((state) => state.companyForm);
+  //const companyForm = useAppSelector((state) => state.companyForm);
   const lenis = useLenis();
 
   useEffect(() => {
