@@ -1,3 +1,5 @@
+import activeStepFormReducer from '@/lib/features/active-step-form-slice';
+import companyFormReducer from '@/lib/features/company-form-slice';
 import headerReducer from '@/lib/features/header/header-slice';
 import { configureStore } from '@reduxjs/toolkit';
 
@@ -5,6 +7,8 @@ export const makeStore = () => {
   return configureStore({
     reducer: {
       header: headerReducer,
+      companyForm: companyFormReducer,
+      activeStepForm: activeStepFormReducer,
     },
   });
 };

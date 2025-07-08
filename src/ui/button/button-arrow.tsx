@@ -4,7 +4,7 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { TransitionLink } from '../transition-link';
 import styles from './button-arrow.module.scss';
 
-export type ButtonArrowProps = { text: string } & ButtonArrowWrapperProps;
+export type ButtonArrowProps = { text?: string } & ButtonArrowWrapperProps;
 
 export function ButtonArrow({
   text,

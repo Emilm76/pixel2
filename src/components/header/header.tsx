@@ -32,17 +32,18 @@ type HeaderLink = {
   name: string;
   href?: string;
   toSection?: string;
+  openModal?: boolean;
 };
 
-const mainLinks = [
+const mainLinks: HeaderLink[] = [
   {
     name: 'Сгенерировать лого в конструкторе',
     href: '/logo-builder/create',
   },
-  { name: 'Заказать лого у студии', toSection: '#' },
+  { name: 'Заказать лого у студии', openModal: true },
   { name: 'Кейсы', href: '/cases' },
 ];
-const secondLinks = [
+const secondLinks: HeaderLink[] = [
   { name: 'О студии', toSection: '/#about' },
   { name: 'Что делаем?', toSection: '/#what-do' },
   { name: 'Кейсы', href: '/cases' },
@@ -90,6 +91,11 @@ export function Header() {
   }
 
   function handleLinkClick(link: HeaderLink) {
+    if (link.openModal) {
+      setIsModalOpen(true);
+      return;
+    }
+
     setIsBurgerOpen(false);
     if (!lenis) return;
     lenis.start();
@@ -229,6 +235,14 @@ function HeaderLink({
   callback: (link: HeaderLink) => void;
 }) {
   const pathname = usePathname();
+
+  if (link.openModal) {
+    return (
+      <button className="button-text" type="button">
+        <span onClick={() => callback(link)}>{link.name}</span>
+      </button>
+    );
+  }
 
   if (link.href) {
     return (
