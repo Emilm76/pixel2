@@ -29,7 +29,7 @@ export function ModalLogo({
     // },
   });
   const ref = createRef<HTMLDivElement>();
-  const [image, takeScreenShot] = useScreenshot({
+  const [, takeScreenShot] = useScreenshot({
     type: 'image/png',
     quality: 1.0,
   });
