@@ -127,7 +127,9 @@
 }
 
 .png {
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   padding: 16px 24px;
   @media (min-width: 768px) {
     padding: 24px 32px;
@@ -142,7 +144,6 @@
     color: inherit;
     @media (min-width: 768px) {
       margin-top: 16px;
-      text-align: center;
     }
   }
 }

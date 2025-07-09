@@ -23,7 +23,7 @@ export function ModalLogo({
 }) {
   const lenis = useLenis();
   const { toPDF, targetRef } = usePDF({
-    filename: 'logo.pdf',
+    filename: 'Презентация логотипа.pdf',
     // page: {
     //   format: 'A5',
     // },
@@ -37,7 +37,7 @@ export function ModalLogo({
   const download = (
     image: string,
     {
-      name = 'img',
+      name = 'Логотип',
       extension = 'png',
     }: { name?: string; extension?: string } = {}
   ) => {
@@ -49,7 +49,7 @@ export function ModalLogo({
 
   const downloadScreenshot = () => {
     if (!ref.current) return;
-    ref.current.style.display = 'inline-block';
+    ref.current.style.display = 'inline-flex';
     takeScreenShot(ref.current).then((img: string | null) => {
       if (img) download(img);
       if (ref.current) ref.current.style.display = 'none';
