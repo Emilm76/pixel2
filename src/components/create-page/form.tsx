@@ -33,7 +33,7 @@ export function Form() {
           className={styles.input}
           inputProps={{
             type: 'text',
-            name: 'name',
+            name: 'description',
             placeholder: 'Название компании',
             autoComplete: 'off',
             required: true,
@@ -46,15 +46,13 @@ export function Form() {
         <TextField
           inputProps={{
             type: 'text',
-            name: 'description',
+            name: 'name',
             placeholder: 'Описание',
             autoComplete: 'off',
             required: true,
           }}
         />
-        <p className={styles.label}>
-          (будет в качестве дескриптера под логотипом)
-        </p>
+        <p className={styles.label}>(несколько слов о Вас)</p>
       </div>
 
       <ButtonPrimary
