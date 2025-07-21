@@ -11,6 +11,7 @@
 
 # Или запустить команды вручную:
 cd ./pixel2
+git pull
 npm ci
 npm run build
 npm pm2 reload all
