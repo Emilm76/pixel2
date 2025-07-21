@@ -31,7 +31,7 @@ export function VideoLazyPlay({
 
       videoEl.load();
       videoEl.addEventListener('loadeddata', () => {
-        if (videoEl.readyState >= 3 && loadCallback) {
+        if (loadCallback) {
           loadCallback();
         }
       });
