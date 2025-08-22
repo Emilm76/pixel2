@@ -26,7 +26,7 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
     const name = formData.get('name') as string | null;
     const tel = formData.get('tel') as string | null;
 
-    if (!name && (!tel || tel.length < 18)) {
+    if (!name || !tel || tel.length < 18) {
       setMessage(status.notComplete);
       return;
     }
@@ -34,18 +34,20 @@ export function Form({ variant = 'sm' }: { variant?: 'md' | 'sm' }) {
     setIsLoading(true);
     setMessage(status.wait);
 
-    const message = `<b>Новая заявка</b>\n${name ? `Имя: ${name}\n` : ''}${
-      tel ? `Телефон: <b>${tel}</b>` : ''
-    }`;
+    const txt = [
+      '<b>Новая заявка</b>',
+      name && `\nИмя: ${name}`,
+      tel && `\nТелефон: <b>${tel}</b>`,
+    ];
+
+    const message = clsx(...txt);
 
     try {
       const response = await fetch(
         `https://api.telegram.org/bot8016171501:AAG-FkOhqrEwith7MhAidsXRSgXnCPbd9jI/sendMessage?parse_mode=html`,
         {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             chat_id: '-4594991068',
             text: message,
