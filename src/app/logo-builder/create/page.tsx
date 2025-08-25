@@ -18,8 +18,6 @@ export default function Constructor() {
   const activePage = useAppSelector((state: RootState) => state.activeStepForm);
   const dispatch = useAppDispatch();
 
-  console.log(activePage);
-
   useEffect(() => {
     if (lenis) lenis.scrollTo(0, { immediate: true });
   }, [activePage, lenis]);

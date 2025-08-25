@@ -2,10 +2,10 @@
 import { ButtonClose } from '@/ui/button/button-close';
 import { ButtonPrimary } from '@/ui/button/button-primary';
 import clsx from 'clsx';
+import { toPng } from 'html-to-image';
 import { useLenis } from 'lenis/react';
-import { createRef, ReactNode, RefObject, useEffect } from 'react';
+import { createRef, ReactNode, RefObject, useCallback, useEffect } from 'react';
 import { usePDF } from 'react-to-pdf';
-import { createFileName, useScreenshot } from 'use-react-screenshot';
 import styles from './modal-logo.module.scss';
 
 export function ModalLogo({
@@ -29,32 +29,24 @@ export function ModalLogo({
     // },
   });
   const ref = createRef<HTMLDivElement>();
-  const [, takeScreenShot] = useScreenshot({
-    type: 'image/png',
-    quality: 1.0,
-  });
 
-  const download = (
-    image: string,
-    {
-      name = 'Логотип',
-      extension = 'png',
-    }: { name?: string; extension?: string } = {}
-  ) => {
-    const a = document.createElement('a');
-    a.href = image;
-    a.download = createFileName(extension, name);
-    a.click();
-  };
+  const onButtonClick = useCallback(() => {
+    if (ref.current === null) return;
 
-  const downloadScreenshot = () => {
-    if (!ref.current) return;
     ref.current.style.display = 'inline-flex';
-    takeScreenShot(ref.current).then((img: string | null) => {
-      if (img) download(img);
-      if (ref.current) ref.current.style.display = 'none';
-    });
-  };
+
+    toPng(ref.current, { cacheBust: true })
+      .then((dataUrl) => {
+        const link = document.createElement('a');
+        link.download = 'Логотип.png';
+        link.href = dataUrl;
+        link.click();
+        if (ref.current) ref.current.style.display = 'none';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [ref]);
 
   useEffect(() => {
     if (!lenis) return;
@@ -93,13 +85,10 @@ export function ModalLogo({
               </h3>
               <div className={styles.buttons}>
                 <ButtonPrimary
-                  onClick={() => toPDF()}
+                  onClick={() => toPDF}
                   text="Скачать презентацию"
                 />
-                <ButtonPrimary
-                  onClick={downloadScreenshot}
-                  text="Скачать логотип"
-                />
+                <ButtonPrimary onClick={onButtonClick} text="Скачать логотип" />
               </div>
 
               <div className={styles.images} ref={targetRef}>
