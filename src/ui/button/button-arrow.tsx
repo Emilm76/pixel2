@@ -1,24 +1,24 @@
-import { ArrowRightIcon } from '@/images/icons/arrow-right';
-import clsx from 'clsx';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { TransitionLink } from '../transition-link';
-import styles from './button-arrow.module.scss';
+import { ArrowRightIcon } from "@/images/icons/arrow-right"
+import clsx from "clsx"
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
+import { TransitionLink } from "../transition-link"
+import styles from "./button-arrow.module.scss"
 
-export type ButtonArrowProps = { text?: string } & ButtonArrowWrapperProps;
+export type ButtonArrowProps = { text?: string } & ButtonArrowWrapperProps
 
 export function ButtonArrow({
   text,
-  variant = 'right',
+  variant = "right",
   className,
   ...props
 }: ButtonArrowProps) {
   const classVariant =
-    variant === 'right' ? styles.variantRight : styles.variantLeft;
+    variant === "right" ? styles.variantRight : styles.variantLeft
 
   return (
     <ButtonArrowWrapper
       {...props}
-      className={clsx(styles.button, classVariant, className, 'p1')}
+      className={clsx(styles.button, classVariant, className, "p1")}
     >
       <span>{text}</span>
       <div className={styles.icon}>
@@ -30,20 +30,20 @@ export function ButtonArrow({
         </div>
       </div>
     </ButtonArrowWrapper>
-  );
+  )
 }
 
 type ButtonArrowWrapperProps =
   | ({
-      href?: undefined;
-      variant?: 'right' | 'left';
-      className?: string;
+      href?: undefined
+      variant?: "right" | "left"
+      className?: string
     } & ButtonHTMLAttributes<HTMLButtonElement>)
   | ({
-      href: string;
-      variant?: 'right' | 'left';
-      className?: string;
-    } & AnchorHTMLAttributes<HTMLAnchorElement>);
+      href: string
+      variant?: "right" | "left"
+      className?: string
+    } & AnchorHTMLAttributes<HTMLAnchorElement>)
 
 function ButtonArrowWrapper({
   className,
@@ -59,7 +59,7 @@ function ButtonArrowWrapper({
       >
         {children}
       </TransitionLink>
-    );
+    )
   }
 
   return (
@@ -69,5 +69,5 @@ function ButtonArrowWrapper({
     >
       {children}
     </button>
-  );
+  )
 }

@@ -24,5 +24,5 @@ export function CubeLeftSide({ className }: { className?: string }) {
         </linearGradient>
       </defs>
     </svg>
-  );
+  )
 }

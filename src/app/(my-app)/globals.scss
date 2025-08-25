@@ -79,8 +79,8 @@ button {
   }
 }
 
-ol[role='list'],
-ul[role='list'] {
+ol[role="list"],
+ul[role="list"] {
   list-style: none;
   padding: 0;
 }
@@ -296,7 +296,7 @@ html,
   &::after,
   > *::before,
   > *::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 6px;
     height: 6px;
@@ -362,7 +362,7 @@ html,
   &::after,
   > *::before,
   > *::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 12px;
     height: 12px;
@@ -432,7 +432,7 @@ html,
   position: relative;
   padding-left: 24px;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 8px;
     height: 8px;
@@ -456,7 +456,7 @@ html,
   &::after,
   span::before,
   span::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     width: 6px;
@@ -583,7 +583,7 @@ html,
   border-radius: 0;
 
   &::before {
-    content: '';
+    content: "";
     width: 12px;
     height: 12px;
     opacity: 0;

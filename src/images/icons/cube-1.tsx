@@ -54,5 +54,5 @@ export function Cube1({ className }: { className?: string }) {
         </linearGradient>
       </defs>
     </svg>
-  );
+  )
 }

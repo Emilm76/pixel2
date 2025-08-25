@@ -1,33 +1,33 @@
-'use client';
-import { Form } from '@/components/form/form';
-import clsx from 'clsx';
-import { useLenis } from 'lenis/react';
-import { Dispatch, SetStateAction, useEffect } from 'react';
-import { ButtonClose } from '../../ui/button/button-close';
-import styles from './modal.module.scss';
+"use client"
+import { Form } from "@/components/form/form"
+import clsx from "clsx"
+import { useLenis } from "lenis/react"
+import { Dispatch, SetStateAction, useEffect } from "react"
+import { ButtonClose } from "../../ui/button/button-close"
+import styles from "./modal.module.scss"
 
 export function Modal({
   isOpen,
   setIsOpen,
 }: {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  isOpen: boolean
+  setIsOpen: Dispatch<SetStateAction<boolean>>
 }) {
-  const lenis = useLenis();
+  const lenis = useLenis()
 
   useEffect(() => {
-    if (!lenis) return;
+    if (!lenis) return
 
     if (isOpen) {
-      lenis.stop();
+      lenis.stop()
     } else {
-      lenis.start();
+      lenis.start()
     }
 
     return () => {
-      lenis.start();
-    };
-  }, [isOpen, lenis]);
+      lenis.start()
+    }
+  }, [isOpen, lenis])
 
   return (
     <>
@@ -36,7 +36,7 @@ export function Modal({
         className={clsx(styles.modal, isOpen && styles.open)}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
-            setIsOpen(false);
+            setIsOpen(false)
           }
         }}
       >
@@ -60,5 +60,5 @@ export function Modal({
         </div>
       </div>
     </>
-  );
+  )
 }

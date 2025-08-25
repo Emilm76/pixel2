@@ -1,12 +1,12 @@
-import clsx from 'clsx';
-import styles from './process-section.module.scss';
-import { Step } from './step';
+import clsx from "clsx"
+import styles from "./process-section.module.scss"
+import { Step } from "./step"
 
 export function ProcessSection() {
   return (
     <section id="what-do" className="section-pt grey-light">
-      <div className={clsx(styles.container, 'container')}>
-        <div className={clsx(styles.subtitle, 'subtitle')}>
+      <div className={clsx(styles.container, "container")}>
+        <div className={clsx(styles.subtitle, "subtitle")}>
           Улучшаем показатели продаж до 
           <span className="purple">700%</span> с помощью цифровых инструментов
         </div>
@@ -36,5 +36,5 @@ export function ProcessSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

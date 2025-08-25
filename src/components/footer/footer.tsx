@@ -1,11 +1,11 @@
-import { Label } from '@/ui/label';
-import clsx from 'clsx';
-import Link from 'next/link';
-import styles from './footer.module.scss';
+import { Label } from "@/ui/label"
+import clsx from "clsx"
+import Link from "next/link"
+import styles from "./footer.module.scss"
 
 export function Footer() {
   return (
-    <footer className={clsx(styles.footer, 'section-pt')}>
+    <footer className={clsx(styles.footer, "section-pt")}>
       <div className="container">
         <h2 className="h2 h-pb">контакты</h2>
       </div>
@@ -50,5 +50,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

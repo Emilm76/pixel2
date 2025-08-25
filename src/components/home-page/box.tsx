@@ -1,39 +1,39 @@
-'use client';
-import { Cube1 } from '@/images/icons/cube-1';
-import { Cube2 } from '@/images/icons/cube-2';
-import { Cube3 } from '@/images/icons/cube-3';
-import { Cube4 } from '@/images/icons/cube-4';
-import Cube5Img from '@/images/icons/cube-5.png';
-import Cube6Img from '@/images/icons/cube-6.png';
-import Cube7Img from '@/images/icons/cube-7.png';
-import { CubeBottomSide } from '@/images/icons/cube-bottom-side';
-import { CubeLeftSide } from '@/images/icons/cube-left-side';
-import { CubeTopSide } from '@/images/icons/cube-top-side';
-import { useGSAP } from '@gsap/react';
-import clsx from 'clsx';
-import gsap from 'gsap';
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import styles from './box.module.scss';
+"use client"
+import { Cube1 } from "@/images/icons/cube-1"
+import { Cube2 } from "@/images/icons/cube-2"
+import { Cube3 } from "@/images/icons/cube-3"
+import { Cube4 } from "@/images/icons/cube-4"
+import Cube5Img from "@/images/icons/cube-5.png"
+import Cube6Img from "@/images/icons/cube-6.png"
+import Cube7Img from "@/images/icons/cube-7.png"
+import { CubeBottomSide } from "@/images/icons/cube-bottom-side"
+import { CubeLeftSide } from "@/images/icons/cube-left-side"
+import { CubeTopSide } from "@/images/icons/cube-top-side"
+import { useGSAP } from "@gsap/react"
+import clsx from "clsx"
+import gsap from "gsap"
+import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
+import styles from "./box.module.scss"
 
 // Types
 type CubeTransform = {
-  x: number;
-  y: number;
-};
+  x: number
+  y: number
+}
 
 type CubeConfig = {
-  node: React.ReactElement;
-  parallaxSpeed: number;
-  className: string;
-};
+  node: React.ReactElement
+  parallaxSpeed: number
+  className: string
+}
 
 type MediaQueryConfig = {
-  leftSide: CubeTransform;
-  topSide: CubeTransform;
-  bottomSide: CubeTransform;
-  cubes: CubeTransform[];
-};
+  leftSide: CubeTransform
+  topSide: CubeTransform
+  bottomSide: CubeTransform
+  cubes: CubeTransform[]
+}
 
 // Constants
 const BOX_TRANSFORMS: Record<string, CubeTransform> = {
@@ -47,7 +47,7 @@ const BOX_TRANSFORMS: Record<string, CubeTransform> = {
   cube5: { x: -250, y: -160 },
   cube6: { x: 180, y: 220 },
   cube7: { x: 120, y: 210 },
-};
+}
 
 const MEDIA_QUERY_CONFIGS: Record<string, MediaQueryConfig> = {
   mobile: {
@@ -134,7 +134,7 @@ const MEDIA_QUERY_CONFIGS: Record<string, MediaQueryConfig> = {
       { ...BOX_TRANSFORMS.cube7, y: BOX_TRANSFORMS.cube7.y * 0.8 },
     ],
   },
-};
+}
 
 const cubesList: CubeConfig[] = [
   {
@@ -172,115 +172,115 @@ const cubesList: CubeConfig[] = [
     parallaxSpeed: 0.03,
     className: styles.cube7,
   },
-];
+]
 
 const ANIMATION_CONFIG = {
   mainCube: {
     opacity: 0,
     duration: 1.5,
-    ease: 'back.inOut(1.7)',
+    ease: "back.inOut(1.7)",
   },
   cube: {
     duration: 1.5,
-    ease: 'back.inOut(1.7)',
+    ease: "back.inOut(1.7)",
   },
-};
+}
 
 export function BoxAnimation() {
-  const main = useRef<HTMLDivElement>(null);
-  const baseTransforms = useRef<Map<string, CubeTransform>>(new Map());
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const main = useRef<HTMLDivElement>(null)
+  const baseTransforms = useRef<Map<string, CubeTransform>>(new Map())
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false)
 
   useGSAP(
     () => {
-      const mm = gsap.matchMedia();
+      const mm = gsap.matchMedia()
 
       const applyAnimations = (config: MediaQueryConfig) => {
-        setIsAnimationComplete(false);
+        setIsAnimationComplete(false)
 
         const animations = [
-          gsap.to('.leftSide', {
+          gsap.to(".leftSide", {
             ...config.leftSide,
             ...ANIMATION_CONFIG.mainCube,
           }),
-          gsap.to('.topSide', {
+          gsap.to(".topSide", {
             ...config.topSide,
             ...ANIMATION_CONFIG.mainCube,
           }),
-          gsap.to('.bottomSide', {
+          gsap.to(".bottomSide", {
             ...config.bottomSide,
             ...ANIMATION_CONFIG.mainCube,
           }),
           ...config.cubes.map((transform, index) => {
-            const className = cubesList[index].className;
-            baseTransforms.current.set(className, transform);
+            const className = cubesList[index].className
+            baseTransforms.current.set(className, transform)
             return gsap.to(`.${className}`, {
               ...transform,
               ...ANIMATION_CONFIG.cube,
-            });
+            })
           }),
-        ];
+        ]
 
         Promise.all(animations.map((anim) => anim.then())).then(() => {
-          setIsAnimationComplete(true);
-        });
-      };
+          setIsAnimationComplete(true)
+        })
+      }
 
-      mm.add('(max-width: 767px)', () =>
-        applyAnimations(MEDIA_QUERY_CONFIGS.mobile)
-      );
-      mm.add('(min-width: 768px) and (max-width: 1023px)', () =>
-        applyAnimations(MEDIA_QUERY_CONFIGS.tablet)
-      );
-      mm.add('(min-width: 1024px) and (max-width: 1299px)', () => {
-        applyAnimations(MEDIA_QUERY_CONFIGS.tablet2);
-      });
-      mm.add('(min-width: 1300px) and (max-width: 1599px)', () => {
-        applyAnimations(MEDIA_QUERY_CONFIGS.tablet3);
-      });
-      mm.add('(min-width: 1600px) and (min-height: 1000px)', () =>
-        applyAnimations(MEDIA_QUERY_CONFIGS.desktop)
-      );
-      mm.add('(min-width: 1600px) and (max-height: 999px)', () =>
-        applyAnimations(MEDIA_QUERY_CONFIGS.desktopSmall)
-      );
+      mm.add("(max-width: 767px)", () =>
+        applyAnimations(MEDIA_QUERY_CONFIGS.mobile),
+      )
+      mm.add("(min-width: 768px) and (max-width: 1023px)", () =>
+        applyAnimations(MEDIA_QUERY_CONFIGS.tablet),
+      )
+      mm.add("(min-width: 1024px) and (max-width: 1299px)", () => {
+        applyAnimations(MEDIA_QUERY_CONFIGS.tablet2)
+      })
+      mm.add("(min-width: 1300px) and (max-width: 1599px)", () => {
+        applyAnimations(MEDIA_QUERY_CONFIGS.tablet3)
+      })
+      mm.add("(min-width: 1600px) and (min-height: 1000px)", () =>
+        applyAnimations(MEDIA_QUERY_CONFIGS.desktop),
+      )
+      mm.add("(min-width: 1600px) and (max-height: 999px)", () =>
+        applyAnimations(MEDIA_QUERY_CONFIGS.desktopSmall),
+      )
     },
-    { scope: main }
-  );
+    { scope: main },
+  )
 
   useEffect(() => {
-    if (!isAnimationComplete) return;
+    if (!isAnimationComplete) return
 
-    const cubesNodeList: HTMLElement[] = gsap.utils.toArray(`.${styles.cube}`);
-    let mouseX = 0;
-    let mouseY = 0;
+    const cubesNodeList: HTMLElement[] = gsap.utils.toArray(`.${styles.cube}`)
+    let mouseX = 0
+    let mouseY = 0
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mouseX = e.clientX
+      mouseY = e.clientY
 
       cubesNodeList.forEach((cube, index) => {
-        const speed = cubesList[index].parallaxSpeed;
-        const className = cubesList[index].className;
-        const parallaxX = (mouseX - window.innerWidth / 2) * speed;
-        const parallaxY = (mouseY - window.innerHeight / 2) * speed;
+        const speed = cubesList[index].parallaxSpeed
+        const className = cubesList[index].className
+        const parallaxX = (mouseX - window.innerWidth / 2) * speed
+        const parallaxY = (mouseY - window.innerHeight / 2) * speed
 
         const baseTransform = baseTransforms.current.get(className) || {
           x: 0,
           y: 0,
-        };
+        }
 
         gsap.to(cube, {
           x: baseTransform.x + parallaxX,
           y: baseTransform.y + parallaxY,
           duration: 0.75,
-        });
-      });
-    };
+        })
+      })
+    }
 
-    document.addEventListener('mousemove', handleMouseMove);
-    return () => document.removeEventListener('mousemove', handleMouseMove);
-  }, [isAnimationComplete]);
+    document.addEventListener("mousemove", handleMouseMove)
+    return () => document.removeEventListener("mousemove", handleMouseMove)
+  }, [isAnimationComplete])
 
   return (
     <div className={styles.wrapper} ref={main}>
@@ -290,9 +290,9 @@ export function BoxAnimation() {
         </div>
       ))}
 
-      <CubeLeftSide className={clsx(styles.leftSide, 'leftSide')} />
-      <CubeTopSide className={clsx(styles.topSide, 'topSide')} />
-      <CubeBottomSide className={clsx(styles.bottomSide, 'bottomSide')} />
+      <CubeLeftSide className={clsx(styles.leftSide, "leftSide")} />
+      <CubeTopSide className={clsx(styles.topSide, "topSide")} />
+      <CubeBottomSide className={clsx(styles.bottomSide, "bottomSide")} />
     </div>
-  );
+  )
 }

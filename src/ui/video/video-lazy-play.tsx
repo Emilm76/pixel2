@@ -1,6 +1,6 @@
-'use client';
-import { useEffect, useRef, VideoHTMLAttributes } from 'react';
-import { VideoSrc } from './video-lazy-load';
+"use client"
+import { useEffect, useRef, VideoHTMLAttributes } from "react"
+import { VideoSrc } from "./video-lazy-load"
 
 export function VideoLazyPlay({
   isPlay,
@@ -9,48 +9,48 @@ export function VideoLazyPlay({
   videoProps = {},
   loadCallback,
 }: {
-  isPlay: boolean;
-  src: VideoSrc;
-  className?: string;
-  videoProps?: VideoHTMLAttributes<HTMLVideoElement>;
-  loadCallback?: () => void;
+  isPlay: boolean
+  src: VideoSrc
+  className?: string
+  videoProps?: VideoHTMLAttributes<HTMLVideoElement>
+  loadCallback?: () => void
 }) {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const isLoadedRef = useRef(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const isLoadedRef = useRef(false)
 
   useEffect(() => {
-    const videoEl = videoRef.current;
-    if (!videoEl) return;
+    const videoEl = videoRef.current
+    if (!videoEl) return
 
     // Lazy loading видео
     if (isPlay && !isLoadedRef.current) {
-      const sources = videoEl.querySelectorAll('source');
+      const sources = videoEl.querySelectorAll("source")
       sources.forEach((source) => {
-        source.src = source.dataset.src || '';
-      });
+        source.src = source.dataset.src || ""
+      })
 
-      videoEl.load();
-      videoEl.addEventListener('loadeddata', () => {
+      videoEl.load()
+      videoEl.addEventListener("loadeddata", () => {
         if (loadCallback) {
-          loadCallback();
+          loadCallback()
         }
-      });
+      })
 
-      isLoadedRef.current = true;
+      isLoadedRef.current = true
     }
 
-    if (!isLoadedRef.current) return;
+    if (!isLoadedRef.current) return
 
     // Автоматическое play/pause
     if (isPlay) {
-      videoEl.currentTime = 0;
+      videoEl.currentTime = 0
       videoEl.play().catch(() => {
-        console.error('video play error');
-      });
+        console.error("video play error")
+      })
     } else {
-      videoEl.pause();
+      videoEl.pause()
     }
-  }, [isPlay, loadCallback]);
+  }, [isPlay, loadCallback])
 
   return (
     <video
@@ -78,5 +78,5 @@ export function VideoLazyPlay({
       <source data-src={src.webm} type="video/webm; codecs=av01.0.05M.08" />
       <source data-src={src.mp4} type="video/mp4" />
     </video>
-  );
+  )
 }

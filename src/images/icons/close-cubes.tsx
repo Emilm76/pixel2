@@ -12,5 +12,5 @@ export function CloseCubesIcon({ className }: { className?: string }) {
       <rect x="30" y="30" width="8" height="8" fill="currentColor" />
       <rect x="30" width="8" height="8" fill="currentColor" />
     </svg>
-  );
+  )
 }

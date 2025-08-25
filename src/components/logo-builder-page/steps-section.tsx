@@ -1,6 +1,6 @@
-import { ButtonPrimaryMedia } from '@/ui/button/button-primary-media';
-import clsx from 'clsx';
-import styles from './steps-section.module.scss';
+import { ButtonPrimaryMedia } from "@/ui/button/button-primary-media"
+import clsx from "clsx"
+import styles from "./steps-section.module.scss"
 
 export function StepsSection() {
   return (
@@ -12,7 +12,7 @@ export function StepsSection() {
         </h2>
       </div>
 
-      <div className={clsx(styles.stepsContainer, 'container')}>
+      <div className={clsx(styles.stepsContainer, "container")}>
         <div className={styles.step}>
           <h3 className="subtitle li white">Быстрый старт</h3>
           <p>
@@ -48,5 +48,5 @@ export function StepsSection() {
         />
       </div>
     </section>
-  );
+  )
 }

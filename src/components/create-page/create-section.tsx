@@ -1,13 +1,13 @@
-import simplyCardImg from '@/images/logo-builder/simply-card.jpg';
-import clsx from 'clsx';
-import Image from 'next/image';
-import styles from './create-section.module.scss';
-import { Form } from './form';
+import simplyCardImg from "@/images/logo-builder/simply-card.jpg"
+import clsx from "clsx"
+import Image from "next/image"
+import styles from "./create-section.module.scss"
+import { Form } from "./form"
 
 export function CreateSection() {
   return (
     <section className="section-pt-2">
-      <div className={clsx(styles.container, 'container')}>
+      <div className={clsx(styles.container, "container")}>
         <div className={styles.contentWrapper}>
           <h2 className="h2 h-pb">
             Генератор <span className="purple">логотипов</span>
@@ -27,5 +27,5 @@ export function CreateSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

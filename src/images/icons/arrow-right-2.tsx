@@ -11,5 +11,5 @@ export function ArrowRight2Icon({ className }: { className?: string }) {
         fill="currentColor"
       />
     </svg>
-  );
+  )
 }

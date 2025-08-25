@@ -108,5 +108,5 @@ export function LoaderIcon({ className }: { className?: string }) {
         />
       </rect>
     </svg>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import { Label } from '@/ui/label';
-import Image, { StaticImageData } from 'next/image';
-import styles from './case.module.scss';
+import { Label } from "@/ui/label"
+import Image, { StaticImageData } from "next/image"
+import styles from "./case.module.scss"
 
 export function Case({
   image,
@@ -8,10 +8,10 @@ export function Case({
   labels,
   onClick,
 }: {
-  image: StaticImageData;
-  name: string;
-  labels: string[];
-  onClick: () => void;
+  image: StaticImageData
+  name: string
+  labels: string[]
+  onClick: () => void
 }) {
   return (
     <div className={styles.blok} onClick={onClick}>
@@ -31,5 +31,5 @@ export function Case({
       </div>
       <h3 className="h3">{name}</h3>
     </div>
-  );
+  )
 }
