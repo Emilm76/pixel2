@@ -1,29 +1,41 @@
-import { postgresAdapter } from "@payloadcms/db-postgres"
+// storage-adapter-import-placeholder
+import { postgresAdapter } from "@payloadcms/db-postgres" // database-adapter-import
+import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
+import path from "path"
 import { buildConfig } from "payload"
 import sharp from "sharp"
+import { fileURLToPath } from "url"
+import { CasesCollection } from "./collections/Cases"
+import { MediaCollection } from "./collections/Media"
+import { UsersCollection } from "./collections/Users"
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
 
 export default buildConfig({
-  // If you'd like to use Rich Text, pass your editor here
+  admin: {
+    user: UsersCollection.slug,
+    importMap: {
+      baseDir: path.resolve(dirname),
+    },
+  },
+  collections: [UsersCollection, MediaCollection, CasesCollection],
   editor: lexicalEditor(),
-
-  // Define and configure your collections in this array
-  collections: [],
-
-  // Your Payload secret - should be a complex and secure string, unguessable
   secret: process.env.PAYLOAD_SECRET || "",
-  // Whichever Database Adapter you're using should go here
-  // Mongoose is shown as an example, but you can also use Postgres
+  typescript: {
+    outputFile: path.resolve(dirname, "payload-types.ts"),
+  },
+  // database-adapter-config-start
   db: postgresAdapter({
-    // Postgres-specific arguments go here.
-    // `pool` is required.
     pool: {
-      connectionString: process.env.DATABASE_URI,
+      connectionString: process.env.DATABASE_URI || "",
     },
   }),
-  // If you want to resize images, crop, set focal point, etc.
-  // make sure to install it and pass it to the config.
-  // This is optional - if you don't need to do these things,
-  // you don't need it!
+  // database-adapter-config-end
   sharp,
+  plugins: [
+    payloadCloudPlugin(),
+    // storage-adapter-placeholder
+  ],
 })
