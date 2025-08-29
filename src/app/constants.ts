@@ -3,6 +3,7 @@ import comboPreviewImg from '@/images/cases-preview/combo.jpg';
 import druzbaPreviewImg from '@/images/cases-preview/druzhba.jpg';
 import hermitagePreviewImg from '@/images/cases-preview/hermitage.jpg';
 import lStudioPreviewImg from '@/images/cases-preview/l-studio.jpg';
+import monaviPreviewImg from '@/images/cases-preview/monavi.jpg';
 import norledPreviewImg from '@/images/cases-preview/norled.jpg';
 import pechorinPreviewImg from '@/images/cases-preview/pechorin.jpg';
 import remontStylePreviewImg from '@/images/cases-preview/remont-style.jpg';
@@ -25,6 +26,7 @@ import tochkaVkusaImg from '@/images/cases/tochka-vkusa.jpg';
 import traceImg from '@/images/cases/trace.jpg';
 // import ugStroysoftImg from '@/images/cases/ug-stroysoft.jpg';
 import druzbaImg from '@/images/cases/druzhba.jpg';
+import monaviImg from '@/images/cases/monavi.jpg';
 import pechorinImg from '@/images/cases/pechorin.jpg';
 import smartpoletImg from '@/images/cases/smartpolet.jpg';
 import visotaImg from '@/images/cases/visota.jpg';
@@ -64,6 +66,18 @@ export const HERMITAGE_CASE_MODAL: CaseModalData = {
 };
 
 export const CASES: Case[] = [
+  {
+    image: monaviPreviewImg,
+    name: 'Эрмитаж',
+    labels: ['Коттеджного поселок', 'брендинг'],
+    categories: ['branding'],
+    modal: {
+      title: ['Брендинг для коттеджного поселка', '«Monavie»'],
+      description: '',
+      image: monaviImg,
+      siteHref: null,
+    },
+  },
   {
     image: hermitagePreviewImg,
     name: 'Эрмитаж',
