@@ -68,7 +68,7 @@ export const HERMITAGE_CASE_MODAL: CaseModalData = {
 export const CASES: Case[] = [
   {
     image: monaviPreviewImg,
-    name: 'Эрмитаж',
+    name: 'Monavie',
     labels: ['Коттеджного поселок', 'брендинг'],
     categories: ['branding'],
     modal: {
