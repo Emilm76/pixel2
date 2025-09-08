@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     cases: Case;
+    tags: Tag;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     cases: CasesSelect<false> | CasesSelect<true>;
+    tags: TagsSelect<false> | TagsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -165,9 +167,24 @@ export interface Media {
 export interface Case {
   id: number;
   name: string;
+  modalName: string;
   description?: string | null;
   url?: string | null;
-  poster?: (number | null) | Media;
+  poster: number | Media;
+  tags: {
+    relationTo: 'tags';
+    value: number | Tag;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags".
+ */
+export interface Tag {
+  id: number;
+  name: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -189,6 +206,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'cases';
         value: number | Case;
+      } | null)
+    | ({
+        relationTo: 'tags';
+        value: number | Tag;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -278,9 +299,20 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface CasesSelect<T extends boolean = true> {
   name?: T;
+  modalName?: T;
   description?: T;
   url?: T;
   poster?: T;
+  tags?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tags_select".
+ */
+export interface TagsSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
 }

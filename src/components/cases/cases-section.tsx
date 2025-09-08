@@ -113,7 +113,6 @@ export function CasesSection({
   return (
     <section className="section-pt">
       {header}
-
       <div className={clsx(styles.grid, "container")}>
         {visibleCases.map((caseItem) => (
           <Case

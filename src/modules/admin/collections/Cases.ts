@@ -4,8 +4,19 @@ export const CasesCollection: CollectionConfig = {
   slug: "cases",
   fields: [
     { name: "name", type: "text", required: true },
+    { name: "modalName", type: "text", required: true },
     { name: "description", type: "text" },
     { name: "url", type: "text" },
-    { name: "poster", type: "upload", relationTo: "media" },
+    { name: "poster", type: "upload", relationTo: "media", required: true },
+    {
+      type: "relationship",
+      relationTo: ["tags"],
+      name: "tags",
+      required: true,
+      hasMany: true,
+    },
   ],
+  admin: {
+    defaultColumns: ["name", "poster", "tags"],
+  },
 }

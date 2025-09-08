@@ -9,12 +9,14 @@ import { MainSection } from "@/components/home-page/main-section"
 import { ProcessSection } from "@/components/home-page/process-section"
 import { QuestionsSection } from "@/components/home-page/questions-section"
 import { TelegramSection } from "@/components/home-page/telegram-section"
+import { CasesListServer } from "@/modules/cases-list"
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
+        <CasesListServer />
         <MainSection />
         <CasesPreviewSection />
         <ClientsSection />
