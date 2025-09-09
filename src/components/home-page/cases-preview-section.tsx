@@ -8,7 +8,6 @@ import hermitageImg from "@/images/cases-preview/hermitage.jpg"
 import moddImg from "@/images/cases-preview/modd.jpg"
 import clsx from "clsx"
 import { useState } from "react"
-import { ModalCase } from "../modal/modal-case"
 import { CasePreview } from "./case-preview"
 import styles from "./cases-preview-section.module.scss"
 
@@ -52,11 +51,11 @@ export function CasesPreviewSection() {
         </div>
       </section>
 
-      <ModalCase
+      {/*<ModalCase
         modalData={modalData}
         isOpen={isModalOpen}
         closeModalCallback={closeModal}
-      />
+      />*/}
     </>
   )
 }

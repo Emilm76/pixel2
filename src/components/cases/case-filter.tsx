@@ -1,32 +1,34 @@
 "use client"
-import { Filter, FILTERS } from "@/app/(my-app)/constants"
+import { Tag } from "@/modules/cases-list/domain/tag"
 import clsx from "clsx"
 import styles from "./case-filter.module.scss"
 
 export function CasesFilter({
-  selectedFilter,
-  hideAll = false,
+  tags,
+  select,
   callback,
 }: {
-  selectedFilter: Filter
-  hideAll?: boolean
-  callback: (value: Filter) => void
+  tags: Tag[]
+  select: string
+  callback: (value: string) => void
 }) {
   return (
     <ul className={styles.grid} role="list">
-      {FILTERS.map(({ label, value }) => {
-        if (hideAll && value === "all") return
-
-        return (
-          <li
-            key={value}
-            className={clsx(value === selectedFilter && styles.checked)}
-            onClick={() => callback(value)}
-          >
-            {label}
-          </li>
-        )
-      })}
+      <li
+        className={clsx(select === "all" && styles.checked)}
+        onClick={() => callback("all")}
+      >
+        Все
+      </li>
+      {tags.map((tag) => (
+        <li
+          className={clsx(tag === select && styles.checked)}
+          onClick={() => callback(tag)}
+          key={tag}
+        >
+          {tag}
+        </li>
+      ))}
     </ul>
   )
 }

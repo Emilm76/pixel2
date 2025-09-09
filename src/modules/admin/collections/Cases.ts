@@ -15,6 +15,18 @@ export const CasesCollection: CollectionConfig = {
       required: true,
       hasMany: true,
     },
+    {
+      name: "labels",
+      type: "array",
+      label: "Лейблы",
+      minRows: 2,
+      maxRows: 2,
+      labels: {
+        singular: "Лейбл",
+        plural: "Лейблы",
+      },
+      fields: [{ name: "name", type: "text", required: true }],
+    },
   ],
   admin: {
     defaultColumns: ["name", "poster", "tags"],

@@ -1,6 +1,6 @@
 "use client"
-import { CaseModalData } from "@/app/(my-app)/constants"
 import { LoaderIcon } from "@/images/icons/loader"
+import { Case } from "@/modules/cases-list/domain/case"
 import { ButtonPrimary } from "@/ui/button/button-primary"
 import clsx from "clsx"
 import { useLenis } from "lenis/react"
@@ -16,7 +16,7 @@ export function ModalCase({
 }: {
   isOpen: boolean
   closeModalCallback: () => void
-  modalData: CaseModalData | null
+  modalData: Case | null
 }) {
   const lenis = useLenis()
   const [isImageLoading, setIsImageLoading] = useState(true)
@@ -62,15 +62,14 @@ export function ModalCase({
             />
             <div className={clsx(styles.container, "container")}>
               <h3 className={clsx(styles.title, "h3 dark")}>
-                {modalData.title[0]}{" "}
-                <span className="purple">{modalData.title[1]}</span>
+                {modalData.title}
               </h3>
               <div className={styles.text}>
                 <p>{modalData.description}</p>
-                {modalData.siteHref && (
+                {modalData.url && (
                   <ButtonPrimary
                     className={styles.buttonSite}
-                    href={modalData.siteHref}
+                    href={modalData.url}
                     target="_blank"
                     text="Ссылка на сайт"
                   />
@@ -86,11 +85,12 @@ export function ModalCase({
             >
               <LoaderIcon className={styles.loader} />
             </div>
-            {modalData.image && (
+            {modalData.posterPath && (
               <Image
                 className={clsx(styles.image, isImageLoading && styles.loading)}
-                src={modalData.image}
+                src={modalData.posterPath}
                 width={1410}
+                height={2000}
                 onLoad={() => setIsImageLoading(false)}
                 alt=""
               />

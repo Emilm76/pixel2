@@ -1,5 +1,4 @@
 "use server"
-
 import { Media, Case as PayloadCase, Tag } from "@/modules/admin/payload-types"
 import { getAppPayload } from "@/shared/payload"
 import { Case } from "../domain/case"
@@ -19,8 +18,9 @@ function mapCase(caseItem: PayloadCase): Case {
     id: caseItem.id,
     title: caseItem.name,
     modalTitle: caseItem.modalName,
-    description: "", // caseItem.description,
-    url: "",
+    description: caseItem.description || null,
+    url: caseItem.url || null,
+    labels: (caseItem.labels ?? []).map((label) => label.name),
     posterPath: mapMedia(caseItem.poster),
     tags: caseItem.tags.map((tag) => (tag.value as Tag).name),
   }

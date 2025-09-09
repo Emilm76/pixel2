@@ -175,6 +175,12 @@ export interface Case {
     relationTo: 'tags';
     value: number | Tag;
   }[];
+  labels?:
+    | {
+        name: string;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -304,6 +310,12 @@ export interface CasesSelect<T extends boolean = true> {
   url?: T;
   poster?: T;
   tags?: T;
+  labels?:
+    | T
+    | {
+        name?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

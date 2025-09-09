@@ -6,13 +6,11 @@ import {
   Filter,
 } from "@/app/(my-app)/constants"
 import { Case } from "@/components/cases/case"
-import { CasesFilter } from "@/components/cases/case-filter"
 import { ButtonArrow } from "@/ui/button/button-arrow"
 import { ButtonPrimary } from "@/ui/button/button-primary"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { CasesTitle } from "../home-page/cases-title"
-import { ModalCase } from "../modal/modal-case"
 import styles from "./cases-section.module.scss"
 
 const ITEMS_PER_PAGE_MAP = {
@@ -80,22 +78,22 @@ export function CasesSection({
     "1": (
       <CasesTitle>
         <div className={styles.header1}>
-          <CasesFilter
+          {/*<CasesFilter
             // hideAll={true}
-            selectedFilter={selectedFilter}
+            select={selectedFilter}
             callback={handleFilterClick}
-          />
+          />*/}
           <ButtonPrimary href="/cases" text="Все кейсы" />
         </div>
       </CasesTitle>
     ),
     "2": (
       <div className="container">
-        <CasesFilter
+        {/*<CasesFilter
           // hideAll={true}
-          selectedFilter={selectedFilter}
+          select={selectedFilter}
           callback={handleFilterClick}
-        />
+        />*/}
       </div>
     ),
     "3": (
@@ -133,11 +131,11 @@ export function CasesSection({
         />
       )}
 
-      <ModalCase
+      {/*<ModalCase
         modalData={modalData}
         isOpen={isModalOpen}
         closeModalCallback={closeModal}
-      />
+      />*/}
     </section>
   )
 }
