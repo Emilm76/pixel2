@@ -69,7 +69,7 @@ export const CASES: Case[] = [
   {
     image: monaviPreviewImg,
     name: 'Monavie',
-    labels: ['Коттеджного поселок', 'брендинг'],
+    labels: ['Коттеджный поселок', 'брендинг'],
     categories: ['branding'],
     modal: {
       title: ['Брендинг для коттеджного поселка', '«Monavie»'],
@@ -277,7 +277,7 @@ export const CASES: Case[] = [
   },
   {
     image: druzbaPreviewImg,
-    name: 'Высота',
+    name: 'Дружба',
     labels: ['застройщик', 'брендинг'],
     categories: ['branding'],
     modal: {
