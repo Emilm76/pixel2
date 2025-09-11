@@ -60,6 +60,7 @@ export function VideoLazyPlay({
       autoPlay
       muted
       loop
+      playsInline
     >
       {src.mobileWebm && (
         <source
