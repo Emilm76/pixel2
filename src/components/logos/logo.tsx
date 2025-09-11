@@ -2,12 +2,14 @@ import { AgisIcon } from '@/images/logos/agis';
 import { AtmosphereIcon } from '@/images/logos/atmosphere';
 import { BrainiIcon } from '@/images/logos/braini';
 import { FeliniIcon } from '@/images/logos/felini';
-import { KonkritIcon } from '@/images/logos/konkrit';
+// import { KonkritIcon } from '@/images/logos/konkrit';
+import KonkritImg from '@/images/logos/konkrit.jpg';
 import { MaycopeVillageIcon } from '@/images/logos/maycope-village';
 import { MonavieIcon } from '@/images/logos/monavie';
 import { VershiniIcon } from '@/images/logos/vershini';
 import styles from './logo.module.scss';
 import clsx from 'clsx';
+import Image from 'next/image';
 
 export const logos = [
   AgisLogo,
@@ -54,9 +56,14 @@ function MonavieLogo() {
 
 function KonkritLogo() {
   return (
-    <div className={clsx(styles.logo, styles.konkrit)}>
-      <KonkritIcon />
-    </div>
+    <Image
+      className={clsx(styles.logo, styles.konkrit)}
+      src={KonkritImg}
+      alt="логотип Конкрит"
+    />
+    // <div className={clsx(styles.logo, styles.konkrit)}>
+    //   <KonkritIcon />
+    // </div>
   );
 }
 
