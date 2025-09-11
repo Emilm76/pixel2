@@ -117,8 +117,7 @@
     }
   }
   svg,
-  svg path,
-  svg circle {
+  svg * {
     fill: inherit !important;
   }
   p {
@@ -135,8 +134,7 @@
     padding: 24px 48px;
   }
   svg,
-  svg path,
-  svg circle {
+  svg * {
     fill: inherit !important;
   }
   p {
