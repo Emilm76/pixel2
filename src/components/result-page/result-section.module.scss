@@ -46,9 +46,7 @@
     color: inherit;
   }
   svg,
-  svg path,
-  svg circle,
-  svg ellipse {
+  svg * {
     fill: inherit !important;
   }
 }

@@ -82,6 +82,7 @@ export function VideoLazyLoad({
       autoPlay
       muted
       loop
+      playsInline
     >
       {src.mobileWebm && (
         <source

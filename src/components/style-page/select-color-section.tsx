@@ -1,23 +1,12 @@
 "use client"
-import logo1Img from "@/images/logos/1.jpg"
-import logo10Img from "@/images/logos/10.jpg"
-import logo11Img from "@/images/logos/11.jpg"
-import logo12Img from "@/images/logos/12.jpg"
-import logo2Img from "@/images/logos/2.jpg"
-import logo3Img from "@/images/logos/3.jpg"
-import logo4Img from "@/images/logos/4.jpg"
-import logo5Img from "@/images/logos/5.jpg"
-import logo6Img from "@/images/logos/6.jpg"
-import logo8Img from "@/images/logos/8.jpg"
-import logo9Img from "@/images/logos/9.jpg"
 import { setActiveStepForm } from "@/lib/features/active-step-form-slice"
 import { setCompanyForm } from "@/lib/features/company-form-slice"
 import { useAppDispatch, useAppSelector } from "@/lib/hooks"
 import { ButtonPrimaryMedia } from "@/ui/button/button-primary-media"
 import clsx from "clsx"
-import Image from "next/image"
 import { FormEvent, useEffect, useState } from "react"
 import styles from "./select-color-section.module.scss"
+import { logos } from "../logos/logo"
 
 const colors = [
   "#31308E",
@@ -54,29 +43,15 @@ const colors = [
   "#FFFFFF",
 ]
 
-const logos = [
-  logo1Img,
-  logo2Img,
-  logo3Img,
-  logo4Img,
-  logo5Img,
-  logo6Img,
-  logo8Img,
-  logo9Img,
-  logo10Img,
-  logo11Img,
-  logo12Img,
-]
-
 export function SelectColorSection() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null)
-  const [selectedLogos, setSelectedLogos] = useState<string[]>([])
+  const [selectedLogos, setSelectedLogos] = useState<number[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isError, setIsError] = useState<boolean>(false)
 
   const dispatch = useAppDispatch()
   const { name, description } = useAppSelector((state) => state.companyForm)
-  const handleClick = (logo: string) => {
+  const handleClick = (logo: number) => {
     setSelectedLogos((prev) => {
       const isIncludes = prev.includes(logo)
       return isIncludes ? prev.filter((l) => l !== logo) : [...prev, logo]
@@ -156,14 +131,16 @@ export function SelectColorSection() {
           </h2>
 
           <div className={styles.grid}>
-            {logos.map((image, index) => {
+            {logos.map((Logo, index) => {
               return (
                 <label className={styles.logoWrapper} key={index}>
                   <div className={styles.logoContent}>
-                    <Image src={image} width={283} height={274} alt="" />
+                    <div className={styles.logo}>
+                      <Logo />
+                    </div>
                     <input
                       className={clsx(styles.checkbox, "checkbox")}
-                      onChange={() => handleClick(image.src)}
+                      onChange={() => handleClick(index)}
                       type="checkbox"
                       name="logo"
                     />
