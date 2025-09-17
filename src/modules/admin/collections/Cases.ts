@@ -19,7 +19,7 @@ export const CasesCollection: CollectionConfig = {
       name: "labels",
       type: "array",
       label: "Лейблы",
-      minRows: 2,
+      minRows: 1,
       maxRows: 2,
       labels: {
         singular: "Лейбл",

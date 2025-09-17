@@ -22,7 +22,7 @@ export function CaseCard({
         />
       </div>
       <div className={styles.labelsWrapper}>
-        {caseItem.tags.map((label, i) => (
+        {caseItem.labels.map((label, i) => (
           <Label key={i}>{label}</Label>
         ))}
       </div>
