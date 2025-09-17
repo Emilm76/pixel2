@@ -1,12 +1,12 @@
-'use client';
-import { ButtonClose } from '@/ui/button/button-close';
-import { ButtonPrimary } from '@/ui/button/button-primary';
-import clsx from 'clsx';
-import { toPng } from 'html-to-image';
-import { useLenis } from 'lenis/react';
-import { createRef, ReactNode, RefObject, useCallback, useEffect } from 'react';
-import { usePDF } from 'react-to-pdf';
-import styles from './modal-logo.module.scss';
+"use client"
+import { ButtonClose } from "@/ui/button/button-close"
+import { ButtonPrimary } from "@/ui/button/button-primary"
+import clsx from "clsx"
+import { toPng } from "html-to-image"
+import { useLenis } from "lenis/react"
+import { createRef, ReactNode, RefObject, useCallback, useEffect } from "react"
+import { usePDF } from "react-to-pdf"
+import styles from "./modal-logo.module.scss"
 
 export function ModalLogo({
   isOpen,
@@ -15,61 +15,61 @@ export function ModalLogo({
   svg,
   text,
 }: {
-  isOpen: boolean;
-  closeModalCallback: () => void;
-  modalData: [string, string];
-  svg: ReactNode | null;
-  text: string;
+  isOpen: boolean
+  closeModalCallback: () => void
+  modalData: [string, string]
+  svg: ReactNode | null
+  text: string
 }) {
-  const lenis = useLenis();
+  const lenis = useLenis()
   const { toPDF, targetRef } = usePDF({
-    filename: 'Презентация логотипа.pdf',
+    filename: "Презентация логотипа.pdf",
     // page: {
     //   format: 'A5',
     // },
-  });
-  const ref = createRef<HTMLDivElement>();
+  })
+  const ref = createRef<HTMLDivElement>()
 
   const onButtonClick = useCallback(() => {
-    if (ref.current === null) return;
+    if (ref.current === null) return
 
-    ref.current.style.display = 'inline-flex';
+    ref.current.style.display = "inline-flex"
 
     toPng(ref.current, { cacheBust: true })
       .then((dataUrl) => {
-        const link = document.createElement('a');
-        link.download = 'Логотип.png';
-        link.href = dataUrl;
-        link.click();
-        if (ref.current) ref.current.style.display = 'none';
+        const link = document.createElement("a")
+        link.download = "Логотип.png"
+        link.href = dataUrl
+        link.click()
+        if (ref.current) ref.current.style.display = "none"
       })
       .catch((err) => {
-        console.log(err);
-      });
-  }, [ref]);
+        console.log(err)
+      })
+  }, [ref])
 
   useEffect(() => {
-    if (!lenis) return;
+    if (!lenis) return
 
     if (isOpen) {
-      lenis.stop();
+      lenis.stop()
     } else {
-      lenis.start();
+      lenis.start()
     }
 
     return () => {
-      lenis.start();
-    };
-  }, [isOpen, lenis]);
+      lenis.start()
+    }
+  }, [isOpen, lenis])
 
   return (
     <>
       <div className={clsx(styles.shadow, isOpen && styles.open)}></div>
       <div
-        className={clsx(styles.modal, 'modal', isOpen && styles.open)}
+        className={clsx(styles.modal, "modal", isOpen && styles.open)}
         onClick={(e) => {
           if (e.target === e.currentTarget) {
-            closeModalCallback();
+            closeModalCallback()
           }
         }}
       >
@@ -79,8 +79,8 @@ export function ModalLogo({
               className={styles.buttonClose}
               onClick={closeModalCallback}
             />
-            <div className={clsx(styles.container, 'container')}>
-              <h3 className={clsx(styles.title, 'h3 dark')}>
+            <div className={clsx(styles.container, "container")}>
+              <h3 className={clsx(styles.title, "h3 dark")}>
                 Логотип <span className="purple">на носителях</span>
               </h3>
               <div className={styles.buttons}>
@@ -121,7 +121,7 @@ export function ModalLogo({
                 style={{
                   fill: modalData[1],
                   color: modalData[1],
-                  display: 'none',
+                  display: "none",
                 }}
                 ref={ref as RefObject<HTMLDivElement>}
               >
@@ -133,5 +133,5 @@ export function ModalLogo({
         </div>
       </div>
     </>
-  );
+  )
 }

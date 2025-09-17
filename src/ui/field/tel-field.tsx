@@ -1,16 +1,16 @@
-'use client';
-import clsx from 'clsx';
-import { useRef, useState } from 'react';
-import { IMaskInput } from 'react-imask';
-import styles from './text-field.module.scss';
+"use client"
+import clsx from "clsx"
+import { useRef, useState } from "react"
+import { IMaskInput } from "react-imask"
+import styles from "./text-field.module.scss"
 
 interface IMaskProps {
-  type?: string;
-  name?: string;
-  placeholder?: string;
-  autoComplete?: string;
-  className?: string;
-  required?: boolean;
+  type?: string
+  name?: string
+  placeholder?: string
+  autoComplete?: string
+  className?: string
+  required?: boolean
 }
 
 export function TelField({
@@ -18,16 +18,16 @@ export function TelField({
   error,
   inputProps = {},
 }: {
-  className?: string;
-  error?: string;
-  inputProps?: IMaskProps;
+  className?: string
+  error?: string
+  inputProps?: IMaskProps
 }) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [filled, setFilled] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [filled, setFilled] = useState(false)
 
   const handleChange = (value: string) => {
-    setFilled(value.length > 0);
-  };
+    setFilled(value.length > 0)
+  }
 
   return (
     <div className={className}>
@@ -36,9 +36,9 @@ export function TelField({
           {...inputProps}
           className={clsx(
             styles.input,
-            'input',
-            filled && '_fill',
-            inputProps.className
+            "input",
+            filled && "_fill",
+            inputProps.className,
           )}
           mask="+{7} (000) 000-00-00"
           inputRef={inputRef}
@@ -48,5 +48,5 @@ export function TelField({
       </div>
       {error && <div className={styles.error}>{error}</div>}
     </div>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import { ArrowRight2Icon } from '@/images/icons/arrow-right-2';
-import clsx from 'clsx';
-import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
-import { TransitionLink } from '../transition-link';
-import styles from './button-primary.module.scss';
+import { ArrowRight2Icon } from "@/images/icons/arrow-right-2"
+import clsx from "clsx"
+import { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react"
+import { TransitionLink } from "../transition-link"
+import styles from "./button-primary.module.scss"
 
-export type ButtonPrimaryProps = { text: string } & ButtonPrimaryWrapperProps;
+export type ButtonPrimaryProps = { text: string } & ButtonPrimaryWrapperProps
 
 export function ButtonPrimary({
   text,
@@ -27,18 +27,18 @@ export function ButtonPrimary({
         </div>
       </div>
     </ButtonPrimaryWrapper>
-  );
+  )
 }
 
 type ButtonPrimaryWrapperProps =
   | ({
-      href?: undefined;
-      className?: string;
+      href?: undefined
+      className?: string
     } & ButtonHTMLAttributes<HTMLButtonElement>)
   | ({
-      href: string;
-      className?: string;
-    } & AnchorHTMLAttributes<HTMLAnchorElement>);
+      href: string
+      className?: string
+    } & AnchorHTMLAttributes<HTMLAnchorElement>)
 
 function ButtonPrimaryWrapper({
   className,
@@ -54,7 +54,7 @@ function ButtonPrimaryWrapper({
       >
         {children}
       </TransitionLink>
-    );
+    )
   }
 
   return (
@@ -64,5 +64,5 @@ function ButtonPrimaryWrapper({
     >
       {children}
     </button>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-'use client';
-import Link, { LinkProps } from 'next/link';
+"use client"
+import Link, { LinkProps } from "next/link"
 // import { useRouter } from 'next/navigation';
-import { AnchorHTMLAttributes, ReactNode } from 'react';
+import { AnchorHTMLAttributes, ReactNode } from "react"
 
 export function TransitionLink({
   children,
@@ -9,9 +9,9 @@ export function TransitionLink({
   className,
   ...props
 }: {
-  children: ReactNode;
-  href: string;
-  className?: string;
+  children: ReactNode
+  href: string
+  className?: string
 } & LinkProps &
   AnchorHTMLAttributes<HTMLAnchorElement>) {
   // const router = useRouter();
@@ -21,12 +21,12 @@ export function TransitionLink({
   //   router.push(href);
   // }
 
-  if (props.target === '_blank') {
+  if (props.target === "_blank") {
     return (
       <a href={href} className={className} {...props}>
         {children}
       </a>
-    );
+    )
   }
 
   return (
@@ -38,5 +38,5 @@ export function TransitionLink({
     >
       {children}
     </Link>
-  );
+  )
 }

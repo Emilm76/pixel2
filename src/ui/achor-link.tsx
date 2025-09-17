@@ -1,8 +1,8 @@
-'use client';
-import { useLenis } from 'lenis/react';
+"use client"
+import { useLenis } from "lenis/react"
 
 export function AnchorLink() {
-  const lenis = useLenis();
+  const lenis = useLenis()
 
   // lenis.scrollTo($el, {
   //   offset: 0,
@@ -15,8 +15,8 @@ export function AnchorLink() {
   return (
     <span
       onClick={() => {
-        lenis?.scrollTo('#pages-main');
+        lenis?.scrollTo("#pages-main")
       }}
     ></span>
-  );
+  )
 }

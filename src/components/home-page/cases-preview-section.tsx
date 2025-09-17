@@ -1,29 +1,28 @@
-'use client';
+"use client"
 import {
   CaseModalData,
   DEFAULT_MODAL_DATA,
   HERMITAGE_CASE_MODAL,
-} from '@/app/constants';
-import hermitageImg from '@/images/cases-preview/hermitage.jpg';
-import moddImg from '@/images/cases-preview/modd.jpg';
-import clsx from 'clsx';
-import { useState } from 'react';
-import { ModalCase } from '../modal/modal-case';
-import { CasePreview } from './case-preview';
-import styles from './cases-preview-section.module.scss';
+} from "@/app/(my-app)/constants"
+import hermitageImg from "@/images/cases-preview/hermitage.jpg"
+import moddImg from "@/images/cases-preview/modd.jpg"
+import clsx from "clsx"
+import { useState } from "react"
+import { CasePreview } from "./case-preview"
+import styles from "./cases-preview-section.module.scss"
 
 export function CasesPreviewSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalData, setModalData] = useState<CaseModalData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalData, setModalData] = useState<CaseModalData | null>(null)
 
   function openModal(modalData: CaseModalData) {
-    setModalData(modalData);
-    setIsModalOpen(true);
+    setModalData(modalData)
+    setIsModalOpen(true)
   }
 
   function closeModal() {
-    setModalData(DEFAULT_MODAL_DATA);
-    setIsModalOpen(false);
+    setModalData(DEFAULT_MODAL_DATA)
+    setIsModalOpen(false)
   }
 
   return (
@@ -36,7 +35,7 @@ export function CasesPreviewSection() {
           </h2>
         </div>
 
-        <div className={clsx(styles.grid, 'container')}>
+        <div className={clsx(styles.grid, "container")}>
           <CasePreview
             image={hermitageImg}
             title="WEB"
@@ -52,11 +51,11 @@ export function CasesPreviewSection() {
         </div>
       </section>
 
-      <ModalCase
+      {/*<ModalCase
         modalData={modalData}
         isOpen={isModalOpen}
         closeModalCallback={closeModal}
-      />
+      />*/}
     </>
-  );
+  )
 }

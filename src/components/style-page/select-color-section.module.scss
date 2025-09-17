@@ -57,7 +57,7 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: 2;
     top: 50%;
@@ -74,7 +74,7 @@
     transition-property: width, height, border;
   }
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     z-index: 3;
     width: 100%;

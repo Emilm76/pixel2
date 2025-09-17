@@ -1,13 +1,13 @@
-import clsx from 'clsx';
-import { ColorsSlider } from './colors-slider';
-import { FontsSlider } from './fonts-slider';
-import styles from './style-section.module.scss';
+import clsx from "clsx"
+import { ColorsSlider } from "./colors-slider"
+import { FontsSlider } from "./fonts-slider"
+import styles from "./style-section.module.scss"
 
 export function StyleSection() {
   return (
     <section className="section-pt">
       <div className={styles.fontsGrid}>
-        <div className={clsx(styles.container, 'container')}>
+        <div className={clsx(styles.container, "container")}>
           <div className={styles.textBlock}>
             <h3 className="h3">
               Подбор <span className="purple">уникальных</span> шрифтов
@@ -26,10 +26,10 @@ export function StyleSection() {
       </div>
 
       <div className={styles.colorGrid}>
-        <div className={clsx(styles.container, 'container')}>
+        <div className={clsx(styles.container, "container")}>
           <div className={styles.textBlock}>
             <h3 className="h3">
-              Создание идеальной{' '}
+              Создание идеальной{" "}
               <span className="purple">цветовой палитры</span>
             </h3>
             <p>
@@ -46,5 +46,5 @@ export function StyleSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

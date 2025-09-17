@@ -9,5 +9,5 @@ export function CloseCrossIcon({ className }: { className?: string }) {
       <path d="M1 1L27 27" stroke="currentColor" strokeLinecap="round" />
       <path d="M27 1L1 27" stroke="currentColor" strokeLinecap="round" />
     </svg>
-  );
+  )
 }

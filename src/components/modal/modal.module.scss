@@ -23,7 +23,8 @@
   opacity: 0;
   pointer-events: none;
   transform: scale(0.9);
-  transition: opacity 0.3s var(--ease-out-back),
+  transition:
+    opacity 0.3s var(--ease-out-back),
     transform 0.3s var(--ease-out-back);
 
   @media (min-width: 768px) {

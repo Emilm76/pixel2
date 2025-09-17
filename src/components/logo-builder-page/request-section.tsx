@@ -1,12 +1,12 @@
-import { LogosSlider } from '../logos/logos-slider';
-import styles from './request-section.module.scss';
+import { LogosSlider } from "../logos/logos-slider"
+import styles from "./request-section.module.scss"
 
 export function RequestSection() {
   return (
     <section className="section-pt">
       <div className="container">
         <h2 className="h2 h-pb">
-          Для сильного бренда — закажите{' '}
+          Для сильного бренда — закажите{" "}
           <span className="purple">лого в студии!</span>
         </h2>
         <div className={styles.grid}>
@@ -22,5 +22,5 @@ export function RequestSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

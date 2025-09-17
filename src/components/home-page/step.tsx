@@ -1,26 +1,26 @@
-'use client';
-import { Label } from '@/ui/label';
-import { ReactNode, useRef, useState } from 'react';
-import styles from './step.module.scss';
+"use client"
+import { Label } from "@/ui/label"
+import { ReactNode, useRef, useState } from "react"
+import styles from "./step.module.scss"
 
 export function Step({
   title,
   count,
   children,
 }: {
-  title: string;
-  count: string;
-  children: ReactNode;
+  title: string
+  count: string
+  children: ReactNode
 }) {
-  const [height, setHeight] = useState(0);
-  const ref = useRef<HTMLDivElement | null>(null);
+  const [height, setHeight] = useState(0)
+  const ref = useRef<HTMLDivElement | null>(null)
 
   function handleMouseEnter() {
-    setHeight(ref.current?.clientHeight ?? 0);
+    setHeight(ref.current?.clientHeight ?? 0)
   }
 
   function handleMouseLeave() {
-    setHeight(0);
+    setHeight(0)
   }
 
   return (
@@ -41,5 +41,5 @@ export function Step({
         </div>
       </div>
     </div>
-  );
+  )
 }

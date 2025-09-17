@@ -1,7 +1,7 @@
-import { ButtonPrimary } from '@/ui/button/button-primary';
-import Image, { StaticImageData } from 'next/image';
-import { ReactNode } from 'react';
-import styles from './case-preview.module.scss';
+import { ButtonPrimary } from "@/ui/button/button-primary"
+import Image, { StaticImageData } from "next/image"
+import { ReactNode } from "react"
+import styles from "./case-preview.module.scss"
 
 export function CasePreview({
   image,
@@ -10,11 +10,11 @@ export function CasePreview({
   href,
   onClick,
 }: {
-  image: StaticImageData;
-  title: string;
-  text: string;
-  href?: string;
-  onClick?: () => void;
+  image: StaticImageData
+  title: string
+  text: string
+  href?: string
+  onClick?: () => void
 }) {
   return (
     <CasePreviewWrapper href={href} onClick={onClick}>
@@ -25,7 +25,7 @@ export function CasePreview({
       </div>
       <ButtonPrimary className={styles.button} text="Смотреть кейс" />
     </CasePreviewWrapper>
-  );
+  )
 }
 
 function CasePreviewWrapper({
@@ -33,21 +33,21 @@ function CasePreviewWrapper({
   children,
   onClick,
 }: {
-  href?: string;
-  children: ReactNode;
-  onClick?: () => void;
+  href?: string
+  children: ReactNode
+  onClick?: () => void
 }) {
   if (href) {
     return (
       <a className={styles.blok} href={href} target="_blank">
         {children}
       </a>
-    );
+    )
   }
 
   return (
     <div className={styles.blok} onClick={onClick}>
       {children}
     </div>
-  );
+  )
 }

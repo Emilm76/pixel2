@@ -1,12 +1,12 @@
-import cubeImg from '@/images/icons/cube-sm.svg';
-import clsx from 'clsx';
-import Image from 'next/image';
-import styles from './about-logobook-section.module.scss';
+import cubeImg from "@/images/icons/cube-sm.svg"
+import clsx from "clsx"
+import Image from "next/image"
+import styles from "./about-logobook-section.module.scss"
 
 export function AboutLogobookSection() {
   return (
     <section className="section-pt">
-      <div className={clsx(styles.header, 'container h-pb')}>
+      <div className={clsx(styles.header, "container h-pb")}>
         <h2 className="h2">
           Что входит <span className="purple">в логобук?</span>
         </h2>
@@ -18,7 +18,7 @@ export function AboutLogobookSection() {
         </p>
       </div>
 
-      <div className={clsx(styles.grid, 'container')}>
+      <div className={clsx(styles.grid, "container")}>
         <div className={styles.block}>
           <Image src={cubeImg} alt="" />
           <h3 className="h3">Лого во всех форматах</h3>
@@ -45,5 +45,5 @@ export function AboutLogobookSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

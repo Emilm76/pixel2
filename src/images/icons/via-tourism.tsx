@@ -51,5 +51,5 @@ export function ViaTourismIcon({ className }: { className?: string }) {
         fill="currentColor"
       />
     </svg>
-  );
+  )
 }
